@@ -1,8 +1,8 @@
 // alert("This is working!");
 
 // To add current year to copyright
-let currentDate = new Date();
+const currentYear = new Date();
 
-let year = currentDate.getFullYear();
+let year = currentYear.getFullYear();
 // console.log(year);
-document.getElementById("copyright").innerHTML = year;
+document.getElementsByClassName("copyright").innerHTML = year;
