@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="./public/styles/styles.css" />
+    <script defer src="./public/js/scripts.js"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/27b39b2da2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header>
+      <div class="logo-container">
+        <img src="./public/images/DOLLAR$ & $EN$E logo.png" alt="site-logo" />
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="./index.html">HOME</a></li>
+          <li><a href="./financial-tracker.html">FINANCIAL TRACKER</a></li>
+          <li><a href="./credit-score.html">CREDIT SCORE</a></li>
+          <li><a href="./resources.html">RESOURCES</a></li>
+          <li><a href="./login.html">PROFILE</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Body -->
+    <main>
+      <section class="section-container margin-space">
+        <div class="content-wrapper">
+          <h1 class="h1-title">DOLLAR$ & $EN$E</h1>
+          <p>
+            Because of several factors (ie: economy, interest rates, jobs, and
+            supply and demand), the housing market has made it near impossible
+            for some people to buy a house on their own.
+          </p>
+          <p>
+            The median age of first time-home buyers was 33 years old in 2021
+            and has now risen to 36.
+          </p>
+          <p>
+            In general, about 66% of first-time home buyers are white, 14%
+            Hispanic, 11% Asian American and 9% black.
+          </p>
+          <p>
+            DOLLAR$ & $EN$E is a financial expense tracker application aimed to
+            help first-time minority buyers learn how to budget and save to be
+            ready for when it's time to put a down-payment on their first house.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-container">
+        <div class="content-wrapper">
+          <h2 class="h2-title">GET IN TOUCH</h2>
+          <p class="content-paragraph">
+            Please feel free to reach out if you have any questions, comments,
+            or concerns. I'd love to hear from you!
+          </p>
+        </div>
+
+        <!-- Message Form -->
+        <form action="#">
+          <div class="form-fields">
+            <!-- First Name -->
+            <div class="form-details">
+              <label for="first-name">First Name:</label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="First Name"
+                required
+              />
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-details">
+              <label for="last-name">Last Name:</label>
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+
+            <!-- Message Box -->
+            <div class="form-details">
+              <label for="message">Message: </label>
+              <textarea
+                name="message"
+                id="message"
+                cols="40"
+                rows="10"
+                placeholder="Message"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-submit">
+              <button class="btn" type="submit">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <section class="footer-container margin-space">
+        <div class="social-media">
+          <h2 class="footer-h2-title">LET'S CONNECT!</h2>
+          <ul class="footer-links">
+            <li>
+              <a href="https://github.com/Npcodes1"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/nicolepayneswe/"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:nicole1rock@gmail.com"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="copyright-wrapper">
+          <p>Copyright &copy; <span id="copyright"></span></p>
+        </div>
+        <div class="back-to-top">
+          <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></a>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
