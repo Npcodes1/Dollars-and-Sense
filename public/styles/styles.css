@@ -35,7 +35,7 @@ body {
 
 .logo-container > a > img {
     /* margin-top: 1rem; */
-    width: 125px;
+    width: 170px;
     border-radius: 20%;
     border: 3px solid var(--cinereous-ashy-grey);
 }
@@ -254,7 +254,20 @@ textarea {
     color: var(--cinereous-ashy-grey);
 }
 
-/* Forgot Login */
+/* Credit Score Page */
+
+.credit-score-container {
+    display: block;
+    text-align: center;
+}
+
+.credit-progress {
+    width: 12.5rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* Forgot Login Page */
 .forgot-login-container {
     display: block;
     text-align: right;
@@ -310,9 +323,14 @@ textarea {
 @media screen and (min-width: 481px) and (max-width: 768px) {
     /* Header */
     .top-header {
-        display: flex;
         flex-direction: column;
         justify-content: space-around;
+    }
+
+     /* Logo */
+     .logo-container > a > img {
+        margin-left: 0;
+        width: 180px;
     }
 
     /* Top Navigation Bar */
