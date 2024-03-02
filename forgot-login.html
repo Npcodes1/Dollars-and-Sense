@@ -3,20 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="./public/styles/styles.css" />
-    <script defer src="./public/js/"></script>
+    <script defer src="./public/js/scripts.js"></script>
+
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/27b39b2da2.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navigation Bar -->
-    <header>
+    <header class="top-header">
       <div class="logo-container">
-        <img src="./public/images/DOLLAR$ & $EN$E logo.png" alt="site-logo" />
+        <a href="./index.html">
+          <img src="./public/images/DOLLAR$ & $EN$E.png" alt="site-logo" />
+        </a>
       </div>
       <nav class="navbar">
         <ul class="nav-links">
@@ -29,13 +40,61 @@
       </nav>
     </header>
 
+    <!-- Bottom Navigation Bar -->
+    <header class="bottom-header">
+      <nav class="navbar-bottom">
+        <a href="./index.html" class="nav-links-bottom">
+          <i class="fa-solid fa-house"></i>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="./financial-tracker.html" class="nav-links-bottom">
+          <i class="fa-solid fa-chart-column"></i>
+          <span class="nav-text">Financial Tracker</span>
+        </a>
+        <a href="./credit-score.html" class="nav-links-bottom">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="nav-text">Credit Score</span>
+        </a>
+        <a href="./resources.html" class="nav-links-bottom">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-text">Resources</span>
+        </a>
+        <a href="./login.html" class="nav-links-bottom">
+          <i class="fa-solid fa-user"></i>
+          <span class="nav-text">Profile</span>
+        </a>
+      </nav>
+    </header>
+
     <!-- Main Body -->
-    <main>
+    <main></main>
       <section class="section-container margin-space">
         <div class="content-wrapper">
-          <h1 class="h1-title">ADMIN</h1>
-          <p></p>
+          <h1 class="h1-title">Having Trouble Signing In?</h1>
+          <p class="content-paragraph">To reset your password, please enter the email address associated with this account.</p>
         </div>
+
+        <!-- Message Form -->
+        <form action="#">
+          <div class="form-fields">
+            <!-- Email -->
+            <div class="form-details">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-submit">
+              <button class="btn" type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
       </section>
 
       <section class="section-container">
@@ -117,9 +176,6 @@
               ></a>
             </li>
           </ul>
-        </div>
-        <div class="copyright-wrapper">
-          <p>Copyright &copy; <span class="copyright"></span></p>
         </div>
         <div class="back-to-top">
           <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></a>

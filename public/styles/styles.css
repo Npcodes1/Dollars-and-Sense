@@ -16,15 +16,15 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: serif;
+    font-family: "Playfair Display", serif;
     font-size: 1rem;
     color: var(--black);
-    background: linear-gradient(var(--snow) 15%, var(--money-green), var(--indigo-dye) 50%, var(--money-green), var(--snow));    
+    background: linear-gradient(var(--snow) 15%, var(--money-green), var(--indigo-dye) 50%, var(--money-green), var(--snow));  
 }
 
-/* Navigation Bar */
+/* Top Navigation Bar */
 
-header {
+.top-header {
     background-color: var(--indigo-dye);
     padding: 1.5rem;
     display: flex;
@@ -33,11 +33,11 @@ header {
     align-items: center;
 }
 
-.logo-container > img {
-    margin-top: 1rem;
-    width: 220px;
+.logo-container > a > img {
+    /* margin-top: 1rem; */
+    width: 125px;
     border-radius: 20%;
-    border: 4px solid var(--cinereous-ashy-grey);
+    border: 3px solid var(--cinereous-ashy-grey);
 }
 
 .nav-links {
@@ -62,6 +62,54 @@ header {
     padding: 0.5rem;
 }
 
+/* Bottom Navigation */
+
+.bottom-header {
+    margin: 0;
+}
+
+.navbar-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 90px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: var(--indigo-dye);
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .nav-links-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    font-size: 13px;
+    color: var(--snow);
+    text-decoration: none;
+  }
+  
+  .nav-links-bottom:hover {
+    color: var(--almond);
+  }
+  
+  .nav-links-bottom i {
+     font-size: 17px;
+     margin-bottom: 0.2rem;
+  }
+  
+  .nav-links-bottom i:active {
+    background-color: var(--cinereous-ashy-grey);
+  }  
+
+  .nav-text {
+    font-size: 11px;
+    padding: 3px;
+  }
+
 /* Main Section */
 
 .section-container {
@@ -78,7 +126,7 @@ header {
 }
 
 .content-wrapper {
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 0;
 }
 
 .content-paragraph {
@@ -96,8 +144,12 @@ header {
     padding: 0.4rem;
 }
 
-.btn:active {
+.btn:hover {
     background-color: var(--cinereous-ashy-grey);
+}
+
+.btn:active {
+    background-color: var(--caput-mortuum);
     color: var(--almond);
 }
 
@@ -126,7 +178,7 @@ header {
 
 .form-submit {
     text-align: center;
-    margin: 3rem auto;
+    margin: 1.5rem auto;
 }
 
 input {
@@ -180,6 +232,7 @@ textarea {
 
 .footer-links li a:hover {
     color: var(--cinereous-ashy-grey);
+    border-bottom: 3px solid var(--almond);
 }
 
 .copyright-wrapper {
@@ -201,25 +254,35 @@ textarea {
     color: var(--cinereous-ashy-grey);
 }
 
+/* Forgot Login */
+.forgot-login-container {
+    display: block;
+    text-align: right;
+    padding-bottom: 20px;
+    padding-right: 30px;
+}
 
 /* Media Queries */
 
-/* Phone/Tablet */
+/* Phone */
 @media screen and (max-width: 480px) {
-    header {
+    /* Header */
+    .top-header {
         display: flex;
         flex-direction: column;
     }
-
-    .logo-container > img {
+    /* Logo */
+    .logo-container > a > img {
         margin-left: 0;
-        width: 220px;
+        width: 150px;
     }
 
+    /* Top Navigation Bar */
     .nav-links {
         display: none;
     }
 
+    /* Contact Form */
     .form-details label {
         text-align: left;
     }
@@ -228,42 +291,64 @@ textarea {
         flex-basis: 100px;
     }
 
+    /* Back to Top button */
     .back-to-top a {
         right: 1rem;
         bottom: 0.5rem;
         font-size: 1.8rem;
     }
+
+    /* Forgot Login */
+    .forgot-login-container {
+        text-align: center;
+    }
+
 }
 
 
 /* Tablet */
 @media screen and (min-width: 481px) and (max-width: 768px) {
-    header {
+    /* Header */
+    .top-header {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
     }
 
+    /* Top Navigation Bar */
     .nav-links {
-        display: flex;
-        justify-content: center;
+        display: none;
     }
 
+    /* To shift labels in contact form to the left */
     .form-fields label {
         text-align: left;
     }
+
+    /* Forgot Username/Password Styles */
+
+.form-submit .login {
+    margin: 1rem;
+}
 }
 
 /* Desktop */
 @media screen and (min-width: 769px) {
-    header {
+    /* Header */
+    .top-header {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
 
-    .logo-container > img {
-        margin-left: 1rem;
+    /* Logo */
+    .logo-container > a > img {
+        margin-left: 2rem;
+    }
+
+    /* Hiding bottom navigation bar when in laptop size. */
+    .bottom-header {
+        display: none;
     }
 
 }

@@ -3,20 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="./public/styles/styles.css" />
-    <script defer src="./public/js/"></script>
+    <script defer src="./public/js/scripts.js"></script>
+
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/27b39b2da2.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navigation Bar -->
-    <header>
+    <header class="top-header">
       <div class="logo-container">
-        <img src="./public/images/DOLLAR$ & $EN$E logo.png" alt="site-logo" />
+        <a href="./index.html">
+          <img src="./public/images/DOLLAR$ & $EN$E.png" alt="site-logo" />
+        </a>
       </div>
       <nav class="navbar">
         <ul class="nav-links">
@@ -29,13 +40,156 @@
       </nav>
     </header>
 
+    <!-- Bottom Navigation Bar -->
+    <header class="bottom-header">
+      <nav class="navbar-bottom">
+        <a href="./index.html" class="nav-links-bottom">
+          <i class="fa-solid fa-house"></i>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="./financial-tracker.html" class="nav-links-bottom">
+          <i class="fa-solid fa-chart-column"></i>
+          <span class="nav-text">Financial Tracker</span>
+        </a>
+        <a href="./credit-score.html" class="nav-links-bottom">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="nav-text">Credit Score</span>
+        </a>
+        <a href="./resources.html" class="nav-links-bottom">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-text">Resources</span>
+        </a>
+        <a href="./login.html" class="nav-links-bottom">
+          <i class="fa-solid fa-user"></i>
+          <span class="nav-text">Profile</span>
+        </a>
+      </nav>
+    </header>
+
     <!-- Main Body -->
     <main>
       <section class="section-container margin-space">
         <div class="content-wrapper">
-          <h1 class="h1-title">LOGIN</h1>
-          <p></p>
+          <h2 class="h2-title">LOGIN</h2>
         </div>
+
+        <!-- Login Form -->
+        <form action="#">
+          <div class="form-fields">
+            <!-- Username -->
+            <div class="form-details">
+              <label for="first-name">Username:</label>
+              <input
+                type="text"
+                name="user-name"
+                id="user-name"
+                placeholder="Username"
+                required
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="form-details">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-submit">
+              <button class="btn" type="submit">Login</button>
+            </div>
+          </div>
+
+          <!-- Forgot Username/Password -->
+          <div class="forgot-login-container">
+            <a class="forgot-login" href="./forgot-login.html"
+              >Forgot Username/Password</a
+            >
+          </div>
+        </form>
+      </section>
+
+      <!-- Sign Up Form -->
+      <section class="section-container">
+        <div class="content-wrapper">
+          <h2 class="h2-title">SIGN UP</h2>
+        </div>
+
+        <!-- Message Form -->
+        <form action="#">
+          <div class="form-fields">
+            <!-- First Name -->
+            <div class="form-details">
+              <label for="first-name">First Name:</label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="First Name"
+                required
+              />
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-details">
+              <label for="last-name">Last Name:</label>
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="form-details">
+              <label for="last-name">Email:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-details">
+              <label for="last-name">Phone Number:</label>
+              <input
+                type="number"
+                name="phone-number"
+                id="phone-number"
+                placeholder="Phone Number"
+                required
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="form-details">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-submit">
+              <button class="btn" type="submit">Sign Up</button>
+            </div>
+          </div>
+        </form>
       </section>
 
       <section class="section-container">
@@ -117,9 +271,6 @@
               ></a>
             </li>
           </ul>
-        </div>
-        <div class="copyright-wrapper">
-          <p>Copyright &copy; <span class="copyright"></span></p>
         </div>
         <div class="back-to-top">
           <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></a>

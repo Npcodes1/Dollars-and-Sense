@@ -3,20 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resources</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="./public/styles/styles.css" />
-    <script defer src="./public/js/"></script>
+    <script defer src="./public/js/scripts.js"></script>
+
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/27b39b2da2.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navigation Bar -->
-    <header>
+    <header class="top-header">
       <div class="logo-container">
-        <img src="./public/images/DOLLAR$ & $EN$E logo.png" alt="site-logo" />
+        <a href="./index.html">
+          <img src="./public/images/DOLLAR$ & $EN$E.png" alt="site-logo" />
+        </a>
       </div>
       <nav class="navbar">
         <ul class="nav-links">
@@ -26,6 +37,32 @@
           <li><a href="./resources.html">RESOURCES</a></li>
           <li><a href="./login.html">PROFILE</a></li>
         </ul>
+      </nav>
+    </header>
+
+    <!-- Bottom Navigation Bar -->
+    <header class="bottom-header">
+      <nav class="navbar-bottom">
+        <a href="./index.html" class="nav-links-bottom">
+          <i class="fa-solid fa-house"></i>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="./financial-tracker.html" class="nav-links-bottom">
+          <i class="fa-solid fa-chart-column"></i>
+          <span class="nav-text">Financial Tracker</span>
+        </a>
+        <a href="./credit-score.html" class="nav-links-bottom">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="nav-text">Credit Score</span>
+        </a>
+        <a href="./resources.html" class="nav-links-bottom">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-text">Resources</span>
+        </a>
+        <a href="./login.html" class="nav-links-bottom">
+          <i class="fa-solid fa-user"></i>
+          <span class="nav-text">Profile</span>
+        </a>
       </nav>
     </header>
 
@@ -117,9 +154,6 @@
               ></a>
             </li>
           </ul>
-        </div>
-        <div class="copyright-wrapper">
-          <p>Copyright &copy; <span class="copyright"></span></p>
         </div>
         <div class="back-to-top">
           <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></a>

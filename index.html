@@ -6,17 +6,28 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="./public/styles/styles.css" />
     <script defer src="./public/js/scripts.js"></script>
+
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/27b39b2da2.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navigation Bar -->
-    <header>
+    <header class="top-header">
       <div class="logo-container">
-        <img src="./public/images/DOLLAR$ & $EN$E logo.png" alt="site-logo" />
+        <a href="./index.html">
+          <img src="./public/images/DOLLAR$ & $EN$E.png" alt="site-logo" />
+        </a>
       </div>
       <nav class="navbar">
         <ul class="nav-links">
@@ -29,28 +40,42 @@
       </nav>
     </header>
 
+    <!-- Bottom Navigation Bar -->
+    <header class="bottom-header">
+      <nav class="navbar-bottom">
+        <a href="./index.html" class="nav-links-bottom active">
+          <i class="fa-solid fa-house"></i>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="./financial-tracker.html" class="nav-links-bottom">
+          <i class="fa-solid fa-chart-column"></i>
+          <span class="nav-text">Financial Tracker</span>
+        </a>
+        <a href="./credit-score.html" class="nav-links-bottom">
+          <i class="fa-solid fa-credit-card"></i>
+          <span class="nav-text">Credit Score</span>
+        </a>
+        <a href="./resources.html" class="nav-links-bottom">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-text">Resources</span>
+        </a>
+        <a href="./login.html" class="nav-links-bottom">
+          <i class="fa-solid fa-user"></i>
+          <span class="nav-text">Profile</span>
+        </a>
+      </nav>
+    </header>
+
     <!-- Main Body -->
     <main>
       <section class="section-container margin-space">
         <div class="content-wrapper">
           <h1 class="h1-title">DOLLAR$ & $EN$E</h1>
           <p>
-            Because of several factors (ie: economy, interest rates, jobs, and
-            supply and demand), the housing market has made it near impossible
-            for some people to buy a house on their own.
-          </p>
-          <p>
-            The median age of first time-home buyers was 33 years old in 2021
-            and has now risen to 36.
-          </p>
-          <p>
-            In general, about 66% of first-time home buyers are white, 14%
-            Hispanic, 11% Asian American and 9% black.
-          </p>
-          <p>
             DOLLAR$ & $EN$E is a financial expense tracker application aimed to
-            help first-time minority buyers learn how to budget and save to be
-            ready for when it's time to put a down-payment on their first house.
+            help first-time minority home buyers. Our goal is to provide
+            financial literacy so buyers will be prepared to buy their first
+            home.
           </p>
         </div>
       </section>
@@ -119,12 +144,14 @@
           <h2 class="footer-h2-title">LET'S CONNECT!</h2>
           <ul class="footer-links">
             <li>
-              <a href="https://github.com/Npcodes1"
+              <a href="https://github.com/Npcodes1" target="_blank"
                 ><i class="fa-brands fa-github"></i
               ></a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/nicolepayneswe/"
+              <a
+                href="https://www.linkedin.com/in/nicolepayneswe/"
+                target="_blank"
                 ><i class="fa-brands fa-linkedin"></i
               ></a>
             </li>
