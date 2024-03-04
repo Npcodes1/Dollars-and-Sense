@@ -17,13 +17,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Playfair Display", serif;
-    font-size: 1rem;
     color: var(--black);
     background: linear-gradient(var(--snow) 15%, var(--money-green), var(--indigo-dye) 50%, var(--money-green), var(--snow));  
 }
 
 /* Top Navigation Bar */
-
 .top-header {
     background-color: var(--indigo-dye);
     padding: 1.5rem;
@@ -34,9 +32,8 @@ body {
 }
 
 .logo-container > a > img {
-    /* margin-top: 1rem; */
     width: 170px;
-    border-radius: 20%;
+    border-radius: 50%;
     border: 3px solid var(--cinereous-ashy-grey);
 }
 
@@ -63,7 +60,6 @@ body {
 }
 
 /* Bottom Navigation */
-
 .bottom-header {
     margin: 0;
 }
@@ -78,9 +74,9 @@ body {
     display: flex;
     overflow-x: auto;
     z-index: 2;
-  }
+}
   
-  .nav-links-bottom {
+.nav-links-bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,28 +87,27 @@ body {
     font-size: 13px;
     color: var(--snow);
     text-decoration: none;
-  }
+}
   
-  .nav-links-bottom:hover {
+.nav-links-bottom:hover {
     color: var(--almond);
-  }
+}
   
-  .nav-links-bottom i {
-     font-size: 17px;
-     margin-bottom: 0.2rem;
-  }
-  
-  .nav-links-bottom i:active {
-    background-color: var(--cinereous-ashy-grey);
-  }  
+.nav-links-bottom i {
+    font-size: 17px;
+    margin-bottom: 0.2rem;
+}
 
-  .nav-text {
+.nav-links-bottom i:active {
+    background-color: var(--cinereous-ashy-grey);
+}  
+
+.nav-text {
     font-size: 11px;
     padding: 3px;
-  }
+}
 
 /* Main Section */
-
 .section-container {
     display: block;
     background-color: var(--snow);
@@ -128,6 +123,7 @@ body {
 
 .content-wrapper {
     padding: 1rem 2rem 0;
+    margin-bottom: 2rem;
 }
 
 .contact-paragraph {
@@ -194,7 +190,6 @@ textarea {
 }
 
 /* Footer Section */
-
 .footer-container {
     background-color: var(--indigo-dye);
     padding: 1rem;
@@ -257,21 +252,33 @@ textarea {
 }
 
 /* Credit Score Page */
-
 .credit-score-container {
     display: block;
     text-align: center;
 }
 
 .credit-progress {
-    width: 12.5rem;
-    position: relative;
+    width: 12.5rem;    
     margin-bottom: 2rem;
 }
 
-.content-image {
+.content-image-wrapper {
     z-index: 1;
     padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Financial Tracker Page */
+.content-image-wrapper > img {
+    height: 13rem;
+    width: 13rem;
+}
+
+.border > img {
+    border: 4px solid var(--caput-mortuum);
+    border-radius: 50%;
 }
 
 /* Forgot Login Page */
@@ -284,7 +291,31 @@ textarea {
 
 /* Resources Page */
 .resource-link {
-    height: 50px;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.resource-link a:link {
+    color: var(--indigo-dye);
+}
+
+.resource-link a:visited {
+    color: var(--indigo-dye);
+}
+
+.resource-link a:hover {
+    color: var(--money-green);
+}
+
+.resource-link a:active {
+    color: var(--caput-mortuum);
+}
+
+.h2-centered {
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 /* Media Queries */
@@ -328,7 +359,6 @@ textarea {
         text-align: center;
         padding: 0 0 1rem 0;
     }
-
 }
 
 
