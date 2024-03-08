@@ -1,5 +1,5 @@
 # Personal-Project
-## Financial Tracker
+## DOLLAR$ & $EN$E- Financial Tracker
 
 ### Goal
 - The goal of this project is to build a financial tracker using React as my personal project.
@@ -19,6 +19,8 @@
 -03/01/24- I made the bottom navigation bar for the mobile and tablet size. It was a little tricky trying to incorporate two different navigation bars and knowing when to hide it or show it.
 
 -03/03/2024- Finished the Credit Score page. I was able to fix an image I had added. It was overlapping with the bottom navigation bar when it was in mobile size. I remembered about the z-index and was able to apply it to both the bottom navigation, the image div, and the footer to get the image to scroll underneath the navbar while also maintaining the smooth transition of the navbar disappearing and the footer appearing.
+
+-03/06/2024- Received feedback from CodeSquad mentor, Kit. Worked on implementing the copyright at the bottom of the pages using JavaScript. Also, brainstorming possible additions to include on the homepage.
 
 
 

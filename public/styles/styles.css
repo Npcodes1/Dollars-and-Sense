@@ -233,10 +233,9 @@ textarea {
 }
 
 .copyright-wrapper {
-    display: block;
-    text-align: center;
     color: var(--snow);
-}
+    font-size: 0.9rem;
+}    
 
 .back-to-top a {
     color: var(--almond);
@@ -345,6 +344,14 @@ textarea {
 
     .form-details input {
         flex-basis: 100px;
+    }
+
+    /* Footer */
+    .copyright-wrapper {
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        width: 65%;
     }
 
     /* Back to Top button */
