@@ -22,5 +22,8 @@
 
 -03/06/2024- Received feedback from CodeSquad mentor, Kit. Worked on implementing the copyright at the bottom of the pages using JavaScript. Also, brainstorming possible additions to include on the homepage.
 
+-03/07/2024- Tried to incorporate copyright date using new Date() method with JavaScript. I thought I couldn't use document.getElementById() since I was planning to set all the pages with the copyright date and I was using the same id. So, I tried using document.QuerySelectorAll and also document.getElementsByClassName and nothing was working. Eventually, I realized that apparently ids are supposed to be used only once per page not document. I rewrote my code and used template literal to write out the message while being able to include the currentYear variable containing the new Date() method. I was able to successfully copy and paste my copyright code to each page.
+
+-03/10/2024- I felt like the website was too block-ish, so I rounded the corners of the sections using the border-radius. I also added a little quiz with three questions to decide if this is the website for the user. I struggled with the JavaScript for this because when I clicked on the yes/no buttons, I tried to put an if/else statement to keep count of the answers and if it was a certain number, then it was supposed to say whether or not this site was for the user. I'll have to work on fixing it later when I understand more about DOM Manipulation.
 
 
