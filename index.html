@@ -87,31 +87,31 @@
               <ol>
                 <li> Do you want to buy a house someday?
                   <div class="quiz-content">
-                    <input type="radio" id="question1-yes" name="question1" value="yes" onclick="answeredQuestions()" required></input>
+                    <input type="radio" class="answer" name="question1" value="yes" required></input>
                     <label>Yes</label>
-                    <input type="radio" id="question1-no" name="question1" value="no" onclick="answeredQuestions()" required></input>
+                    <input type="radio" class="answer" name="question1" value="no" required></input>
                     <label>No</label>
                   </div>
                 </li>
                 <li> Can you currently afford one?
                   <div class="quiz-content">
-                    <input type="radio" id="question2-yes" name="question2" value="yes" onclick="answeredQuestions()" required></input>
+                    <input type="radio" class="answer" name="question2" value="yes" required></input>
                     <label>Yes</label>
-                    <input type="radio" id="question2-no" name="question2" value="no" onclick="answeredQuestions()" required></input>
+                    <input type="radio" class="answer" name="question2" value="no" required></input>
                     <label>No</label>
                   </div>
                 <li> Are you struggling with budgeting and saving?
                   <div class="quiz-content">
-                    <input type="radio" id="question3-yes" name="question3" value="yes" onclick="answeredQuestions()" required></input>
+                    <input type="radio" class="answer" name="question3" value="yes" required></input>
                     <label>Yes</label>
-                    <input type="radio" id="question3-no" name="question3" value="no" onclick="answeredQuestions()" required></input>
+                    <input type="radio" class="answer" name="question3" value="no" required></input>
                     <label>No</label>
                   </div>
                 </li>
               </ol>
               <!-- Submit Button -->
             <div class="form-submit quiz">
-              <button class="btn" type="submit" onclick="getFinalResult()">Submit</button>
+              <button class="btn" type="submit">Submit</button>
             </div>
             <p id="quiz-results"></p>
           </div>
