@@ -12,7 +12,6 @@
 
 - So I decided to create a project that focuses on helping minorities learn more about housing and budgeting to be able to bridge the financial gap and help them buy their first home.
 
-
 ### Coding Progress Diary
 - 02/27/24- Worked on navigation bar and footer for personal project and making them responsive. I also added a button where it will take me back to the top when I click on it. I tried to use getFullYear() to add the current year for the footer but it's not working. I will start working on adding more content to my pages.
 
@@ -27,4 +26,6 @@
 - 03/10/2024- I felt like the website was too block-ish, so I rounded the corners of the sections using the border-radius. I also added a little quiz with three questions to decide if this is the website for the user. I struggled with the JavaScript for this because when I clicked on the yes/no buttons, I tried to put an if/else statement to keep count of the answers and if it was a certain number, then it was supposed to say whether or not this site was for the user. I'll have to work on fixing it later when I understand more about DOM Manipulation.
 
 - 03/26/2024- Created a new branch called VER-6. I needed to fix the quiz that I put on my index.html page. I was able to get it to register whenever one of the radio buttons has been clicked, but I can't get it to check if the value was "yes" or "no" and calculate the score accordingly. The purpose of the score is to decide whether the user needs this website or not. I'll try to work on it again tomorrow.
+  
+- 03/27/2024- I added more text to my homepage. I'm learning about chart.js with the hope of adding a pie or bar chart that will compare the statistics I found that showcases the demographics for first time home buyers. I also continued to work on my quiz. I tried to refactor the code so that I used a forEach loop to add event listeners to each input field so it would activate the calculateAnswers function when one of the inputs, whether it is "yes" or "no", was pressed. Then, I wanted the calculateAnswers function to look at each input value and calculate the score based on the number of "yes" and "no" answers received. Once, the submit button was pressed, the score was supposed to be used as a parameter for the getFinalResult function and output the message on the screen if this site is for the user or not. However, there seems to be a problem with my calculateAnswers function and it can't seem to get the value of the input that was selected. I will try to work on it again tomorrow and going to office hours for help, if I'm able to.
 

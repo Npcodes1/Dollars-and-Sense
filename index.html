@@ -72,11 +72,30 @@
         <div class="content-wrapper">
           <h1 class="h1-title">DOLLAR$ & $EN$E</h1>
           <p>
-            DOLLAR$ & $EN$E is a financial expense tracker application aimed to
-            help first-time minority home buyers. Our goal is to provide
-            financial literacy to prepare to buy their first home.
+            Welcome to DOLLAR$ & $EN$E- a financial tracker that helps you make
+            sense of where your dollars are going! Track your expenses and
+            budget to manage your money for a down-payment on a house!
           </p>
-
+          <p>Did you know???</p>
+          <ul>
+            <li>
+              The median age of first time-home buyers was 33 years old in 2021.
+            </li>
+            <li>Now that age has risen to 36 years old.</li>
+            <li>
+              In general, about 66% of first-time home buyers are white, 14%
+              Hispanic, 11% Asian American and 9% black.
+            </li>
+          </ul>
+          <p>
+            Our goal is aimed to providing helpful resources that will aid
+            first-time minority buyers learn financial literacy for when it
+            comes time for them to start looking for houses.
+          </p>
+          <p>
+            Start your journey today by taking the quiz below to see if this
+            website is for you!
+          </p>
           <hr />
 
           <!-- Quiz -->
@@ -85,36 +104,77 @@
           <form onsubmit="return false">
             <div class="form-questions-wrapper">
               <ol>
-                <li> Do you want to buy a house someday?
+                <li>
+                  Do you want to buy a house someday?
                   <div class="quiz-content">
-                    <input type="radio" class="answer" name="question1" value="yes" required></input>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question1"
+                      value="yes"
+                      required
+                    />
                     <label>Yes</label>
-                    <input type="radio" class="answer" name="question1" value="no" required></input>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question1"
+                      value="no"
+                      required
+                    />
                     <label>No</label>
                   </div>
                 </li>
-                <li> Can you currently afford one?
+                <li>
+                  Can you currently afford one?
                   <div class="quiz-content">
-                    <input type="radio" class="answer" name="question2" value="yes" required></input>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question2"
+                      value="yes"
+                      required
+                    />
                     <label>Yes</label>
-                    <input type="radio" class="answer" name="question2" value="no" required></input>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question2"
+                      value="no"
+                      required
+                    />
                     <label>No</label>
                   </div>
-                <li> Are you struggling with budgeting and saving?
+                </li>
+
+                <li>
+                  Are you struggling with budgeting and saving?
                   <div class="quiz-content">
-                    <input type="radio" class="answer" name="question3" value="yes" required></input>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question3"
+                      value="yes"
+                      required
+                    />
                     <label>Yes</label>
-                    <input type="radio" class="answer" name="question3" value="no" required></input>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question3"
+                      value="no"
+                      required
+                    />
                     <label>No</label>
                   </div>
                 </li>
               </ol>
               <!-- Submit Button -->
-            <div class="form-submit quiz">
-              <button class="btn" type="submit">Submit</button>
+              <div class="form-submit quiz">
+                <button class="btn" type="submit">Submit</button>
+              </div>
+              <p id="quiz-results"></p>
             </div>
-            <p id="quiz-results"></p>
-          </div>
           </form>
         </div>
       </section>

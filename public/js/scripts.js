@@ -51,6 +51,7 @@ document.getElementById("copyright").innerHTML = `Copyright &copy; Nicole Payne 
 //     return;
 // };
 
+
 //Quiz Take 2
 
 const inputAnswers = document.querySelectorAll(".answer"); 
@@ -59,18 +60,17 @@ const inputAnswers = document.querySelectorAll(".answer");
 //To keep score
 let score = 0;
 
-
 //To calculate score
 
 const calculateAnswers = function() {
     //variable to store selected radio input
-    let selected = document.querySelectorAll(".answer:checked").value;
+    let selected = document.querySelectorAll(".answer:checked");
     //if clicked yes, add 1 to score
-    if (selected === "yes") {
+    if (selected.value === "yes") {
         score++;
         console.log(score);
       //if clicked no, score remains unchanged
-    } else if (selected === "no") {
+    } else if (selected.value === "no") {
         score;
         console.log(score); 
     } else {
@@ -92,7 +92,7 @@ let message = document.querySelector("#quiz-results");
 
 const getFinalResult = function() {
     switch(score) {
-    case 0 <= score < 2:
+    case score < 2:
         message.textContent = "Sorry, this site will not benefit you."
         break;
     case score >= 2:
