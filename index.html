@@ -20,6 +20,9 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- To add chart.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -72,21 +75,33 @@
         <div class="content-wrapper">
           <h1 class="h1-title">DOLLAR$ & $EN$E</h1>
           <p>
-            Welcome to DOLLAR$ & $EN$E- a financial tracker that helps you make
-            sense of where your dollars are going! Track your expenses and
-            budget to manage your money for a down-payment on a house!
+            Welcome to DOLLAR$ & $EN$E- a housing financial tracker aimed
+            specifically for helping you make sense of where your dollars are
+            going and where they need to be! Learn more about managing your
+            money in a efficient way to save for a down-payment on a house!
           </p>
           <p>Did you know???</p>
           <ul>
+            <li>
+              Due to several factors, such as economy, interest rates, jobs, and
+              supply and demand, the housing market has made it near impossible
+              for some people to buy a house on their own.
+            </li>
             <li>
               The median age of first time-home buyers was 33 years old in 2021.
             </li>
             <li>Now that age has risen to 36 years old.</li>
             <li>
-              In general, about 66% of first-time home buyers are white, 14%
-              Hispanic, 11% Asian American and 9% black.
+              In general, about 66% of first-time home buyers are Caucasian, 14%
+              Hispanic, 11% Asian American, and 9% African Americans.
+              <!--Information source link -->
+              [<a href="" target="_blank">1</a>]
             </li>
           </ul>
+          <!--To add the pie chart to the page. It's wrapped in a div container for responsiveness. -->
+          <div class="pie-container">
+            <canvas id="pieChart"></canvas>
+          </div>
           <p>
             Our goal is aimed to providing helpful resources that will aid
             first-time minority buyers learn financial literacy for when it

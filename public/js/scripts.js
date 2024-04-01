@@ -4,6 +4,23 @@
 let currentYear = new Date().getFullYear();
 document.getElementById("copyright").innerHTML = `Copyright &copy; Nicole Payne ${currentYear}. All Rights Reserved.`;
 
+//Pie Chart using chart.js
+const pieChart = document.querySelector("#pieChart");
+
+new Chart(pieChart, {
+    type: "pie",
+    data: {
+    labels: ["66% Caucasian", "14% Hispanic", "11% Asian American", "9% African American"],
+    datasets: [
+        {
+        label: "Demographic percentages for first-time home buyers",
+        backgroundColor: ["#f1c40f", "#e67e22", "#399B53", "#023B58"],
+        data: [66, 14, 11, 9]
+        }
+    ],
+    }
+});
+
 // Quiz results
 // To storing the value of if yes or no was checked into variables.
     // Question 1
@@ -55,7 +72,7 @@ document.getElementById("copyright").innerHTML = `Copyright &copy; Nicole Payne 
 //Quiz Take 2
 
 const inputAnswers = document.querySelectorAll(".answer"); 
-// console.log(inputAnswer, inputAnswer.length); //selects all 6 radio inputs
+console.log(inputAnswers, inputAnswers.length); //selects all 6 radio inputs
 
 //To keep score
 let score = 0;
@@ -65,16 +82,21 @@ let score = 0;
 const calculateAnswers = function() {
     //variable to store selected radio input
     let selected = document.querySelectorAll(".answer:checked");
-    //if clicked yes, add 1 to score
-    if (selected.value === "yes") {
-        score++;
-        console.log(score);
-      //if clicked no, score remains unchanged
-    } else if (selected.value === "no") {
-        score;
-        console.log(score); 
-    } else {
-          console.warn("There's a problem with this quiz!");
+    for (let index = 0; index < selected.length; index++) {
+        //if clicked yes, add 1 to score
+        if (selected === true) {
+            score += 1;
+            // console.log(score);
+            console.log(selected);
+        }
+        //if clicked no, score remains unchanged
+        // } else if (selected.textContent === "no") {
+        // //     score;
+        // //     console.log(score); 
+        // } else {
+        //     console.warn("There's a problem with this quiz!");
+        // }
+        // console.log(score);
     }
 }
 
@@ -83,6 +105,7 @@ const calculateAnswers = function() {
     // marking that it's been selected
 inputAnswers.forEach(inputAnswers => {
     inputAnswers.addEventListener("click", calculateAnswers);
+    console.log(inputAnswers);
 })
   
   

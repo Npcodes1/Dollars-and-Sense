@@ -1,0 +1,15 @@
+{
+  "name": "personal-project",
+  "version": "1.0.0",
+  "description": "This is my financial tracker personal project for CodeSquad",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicole Payne",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.4.2",
+    "express": "^4.19.2"
+  }
+}

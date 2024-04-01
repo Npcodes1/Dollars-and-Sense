@@ -196,6 +196,13 @@ textarea {
     resize: none;
 }
 
+/* Demographics Pie Chart */
+.pie-container {
+    width: 400px;
+    margin: auto;
+    padding: 1rem 0;
+  }
+
 /* Quiz */
 .form-questions-wrapper {
     text-align: center;
