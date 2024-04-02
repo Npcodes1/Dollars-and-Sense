@@ -72,7 +72,7 @@ new Chart(pieChart, {
 //Quiz Take 2
 
 const inputAnswers = document.querySelectorAll(".answer"); 
-console.log(inputAnswers, inputAnswers.length); //selects all 6 radio inputs
+// console.log(inputAnswer, inputAnswer.length); //selects all 6 radio inputs
 
 //To keep score
 let score = 0;
@@ -81,32 +81,24 @@ let score = 0;
 
 const calculateAnswers = function() {
     //variable to store selected radio input
-    let selected = document.querySelectorAll(".answer:checked");
-    for (let index = 0; index < selected.length; index++) {
-        //if clicked yes, add 1 to score
-        if (selected === true) {
-            score += 1;
-            // console.log(score);
-            console.log(selected);
-        }
-        //if clicked no, score remains unchanged
-        // } else if (selected.textContent === "no") {
-        // //     score;
-        // //     console.log(score); 
-        // } else {
-        //     console.warn("There's a problem with this quiz!");
-        // }
-        // console.log(score);
-    }
-}
+  for (let i = 0; i < inputAnswers.length; i++) {
+    if (inputAnswers[i].checked === inputAnswers[i].value) {
+      // console.log(inputAnswers[i].value);
+      score++;
+      console.log(score);
+  } else {
+      console.log(score);
+  }
+  }
+  
+};
 
 
 //for each loop to add event listener to selected input choice
     // marking that it's been selected
 inputAnswers.forEach(inputAnswers => {
     inputAnswers.addEventListener("click", calculateAnswers);
-    console.log(inputAnswers);
-})
+});
   
   
 //submit function
@@ -115,7 +107,7 @@ let message = document.querySelector("#quiz-results");
 
 const getFinalResult = function() {
     switch(score) {
-    case score < 2:
+    case 0 <= score < 2:
         message.textContent = "Sorry, this site will not benefit you."
         break;
     case score >= 2:
