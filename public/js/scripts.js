@@ -82,13 +82,21 @@ let score = 0;
 const calculateAnswers = function() {
     //variable to store selected radio input
   for (let i = 0; i < inputAnswers.length; i++) {
-    if (inputAnswers[i].checked === inputAnswers[i].value) {
-      // console.log(inputAnswers[i].value);
-      score++;
-      console.log(score);
-  } else {
-      console.log(score);
-  }
+   if (inputAnswers[i].checked) {
+        if (inputAnswers[i].value === "yes") {
+            console.log(inputAnswers[i].value);
+            score += 1
+            console.log(score);
+        }
+        
+    } if (inputAnswers[i].checked) {
+        if (inputAnswers[i].value === "no") {
+          console.log(inputAnswers[i].value);
+          console.log(score);
+        }
+    } else {
+        // console.log("The math ain't mathing!");
+    }
   }
   
 };
