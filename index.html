@@ -69,6 +69,15 @@
       </nav>
     </header>
 
+    <!-- Wave svg -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path
+        fill="#023b58"
+        fill-opacity="1"
+        d="M0,64L80,58.7C160,53,320,43,480,69.3C640,96,800,160,960,181.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+      ></path>
+    </svg>
+
     <!-- Main Body -->
     <main>
       <section class="section-container margin-space">
@@ -116,7 +125,7 @@
           <!-- Quiz -->
           <h3 class="h3-title">WONDERING IF THIS SITE IS FOR YOU?</h3>
           <h4 class="h4-title">TAKE THE QUIZ AND FIND OUT!</h4>
-          <form onsubmit="return false">
+          <form class="form" onsubmit="return false">
             <div class="form-questions-wrapper">
               <ol>
                 <li>
@@ -161,7 +170,6 @@
                     <label>No</label>
                   </div>
                 </li>
-
                 <li>
                   Are you struggling with budgeting and saving?
                   <div class="quiz-content">
@@ -185,8 +193,11 @@
                 </li>
               </ol>
               <!-- Submit Button -->
-              <div class="form-submit quiz">
-                <button class="btn" type="submit">Submit</button>
+              <div class="form-submit-quiz">
+                <button class="form-btn btn" type="submit">Submit</button>
+                <button class="form-btn clear-btn btn" type="submit">
+                  Clear
+                </button>
               </div>
               <p id="quiz-results"></p>
             </div>

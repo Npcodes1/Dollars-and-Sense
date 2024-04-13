@@ -67,3 +67,9 @@
 
 - 03/29/2024- I was able to successfully implement a pie chart onto my homepage using Chart.js. I used a script tag that was on the chart.js website but for my next goal, I want to be able to install chart.js with npm so I can get practice with installing packages. As for my quiz, I was able to get it to find the value of the radio button that was clicked. I'm still working on how to get it to calculate a score based on that to output a message.
 
+- 4/3/2024- I worked on my quiz.
+
+- 4/4/2024- I worked on my quiz. I was able to get it to score.
+
+- 4/12/2024 - I worked on my quiz. I was able to get it to work properly! I just needed to add the score variable and set it to 0 before the for loop so it would reset and start at 0 again when the next question was selected. I also added a clear button so it would reset in case the user wanted to retry the quiz. I removed the border around the quiz and adjusted the submit and clear so it was centered and responsive.
+

@@ -117,10 +117,6 @@ body {
     border-radius: 20px;
 }
 
-.margin-space {
-    margin-top: 4rem;
-}
-
 hr {
     margin: 1.5rem 0;
 }
@@ -187,7 +183,6 @@ hr {
 input {
     padding: 0.3rem 0.2rem;
     margin: 0.5rem auto;
-    /* border-radius: 10px;    */
 }
 
 textarea {
@@ -198,28 +193,43 @@ textarea {
 
 /* Demographics Pie Chart */
 .pie-container {
-    width: 400px;
     margin: auto;
     padding: 1rem 0;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pieChart {
+    width: 400px;
+}
 
 /* Quiz */
-.form-questions-wrapper {
+.form {
     text-align: center;
+    margin: auto;
+}
+
+.form-questions-wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
 .quiz-content {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
-.quiz-content > input[type=radio] {
+.quiz-content > input[type="radio"] {
     margin: 1rem;
     cursor: pointer;
 }
 
 .form-questions-wrapper > ol {
-    max-width: 40%;
-    margin: auto;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .form-questions-wrapper > ol > li {
@@ -227,8 +237,27 @@ textarea {
     padding-left: 0.5rem;
 }
 
+.form-submit-quiz {
+    margin: auto;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-btn {
+    margin: auto 0.8rem;
+}
+
+.btn {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
 #quiz-results {
     margin: auto;
+    padding: 2rem;
 }
 
 
@@ -388,8 +417,7 @@ textarea {
 
     .form-questions-wrapper > ol {
         max-width: 85%;
-        padding: 0.3rem;
-       
+        padding: 0.3rem;       
     }
 
     .form-questions-wrapper > ol > li {
@@ -443,6 +471,10 @@ textarea {
     /* Top Navigation Bar */
     .nav-links {
         display: none;
+    }
+    
+    .pie-container {
+        width: 100%;
     }
 
     /* Quiz */
