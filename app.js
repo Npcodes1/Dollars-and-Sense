@@ -1,58 +1,52 @@
 //import packages
 const express = require("express"); //brings express into the project
+
+//Middleware set up - morgan
+const morgan = require("morgan");
+
+//path to public folder
+const path = require("node:path");
+
+//initialize the app
 const app = express(); //makes the express package usable to set up the app foundation.
 
 //set up the port
 const PORT = 3000; 
 
+//define cors after the port- middleware that restricts which origin can make requests to the server (ie: a bouncer);
+const cors = require("cors");
 
-//Middleware set up
-const morgan = require("morgan");
-
-//use morgan
+//use morgan - middleware that gives information about the request
 app.use(morgan("dev"));
 
+//defining routing variable to data
+const routes = require("./routes/siteRouter");
 
-const cors = require("cors");
-app.use(cors());
+//J-SON Derulo- middleware that unpacks/reads json data sent from client and helps server understand/work with the data
+app.use(express.json());
 
-//Make GET Requests
+//encode forms- middleware that scrambles form info to protect it from being shown. Helps server decode it.
+app.use(express.urlencoded({ extended: true }));
+
+//using path to let app know public directory is available to be used
+app.use(express.static(path.join(__dirname, "public")));
+
+//use cors
+// app.use(cors());
+
+//GET Requests
 //making a route for home page(index.html)
-app.get("/", (req, res, next) => {
-    res.status(200).json({success: {message: "This is the homepage"}});
+app.get("/api/", (req, res, next) => {
+    res.status(200).json({ success: { message: "This is the homepage" }, statusCode: 200 });
 });
 
-//making a route for admin page (admin.html)
-app.get("/admin", (req, res, next) => {
-    res.status(200).json({success: {message: "This is the admin page"}});
-});
+//use to route to index.js
+app.use(routes);
 
-//making a route for credit score page (credit-score.html)
-app.get("/credit-score", (req, res, next) => {
-    res.status(200).json({success: {message: "This is the credit score page"}});
-});
-
-//making a route for financial tracker page (financial-tracker.html)
-app.get("/financial-tracker", (req, res, next) => {;
-    res.status(200).json({success: {message: "This is the financial tracker page"}});
-});
-
-//making a route for forgot login page (forgot-login.html)
-app.get("/forgot-login", (req, res, next) => { 
-    res.status(200).json({success: {message: "This is the forgot login page"}});
-});
-
-//making a route for login page (login.html)
-app.get("/login", (req, res, next) => {
-    res.status(200).json({success: {message: "This is the login"}});
-});
-
-//making a route for resources page (resources.html)
-app.get("/resources", (req, res, next) => {
-    res.status(200).json({success: {message: "This is the resources page"}});
-});
-
+//Server
 app.listen(PORT, () => {
-    console.log(`The server is listening at port ${PORT}`) //to listen for requests
-    console.log(`http://localhost:${PORT}`); //to get the localhost link
+    //to listen for requests
+    console.log(`The server is listening at port ${PORT}`);
+    //to get the localhost link
+    console.log(`http://localhost:${PORT}`);
 });
