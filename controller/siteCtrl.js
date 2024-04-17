@@ -3,45 +3,81 @@
 //summon the mock database file
 const usersData = require("../data/usersData");
 
+//homepage (reading data)
+const homePage = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "This is the homepage" }, statusCode: 200 });
+        }
 
-//admin
+    } catch (error) {
+        res.status(404).json({ error: { message: "Homepage can't be found." }, statusCode: 404 });
+    }
+};
+
+
+//admin (possible reading, creating, updating and deleting data?)
 const admin = async (req, res, next) => {
     try {
         if (200) {
-            res.status(200).json({ success: { message: "This is the admin page" }, statusCode: 200 });
+            await res.status(200).json({ success: { message: "This is the admin page" }, statusCode: 200 });
         }
         
     } catch (error) {
         res.status(404).json({ error: { message: "Admin page can't be found." }, statusCode: 404 });
     }
-    
-}
+};
 
-//credit score
-//(req, res, next) => {
-    // res.status(200).json({ success: { message: "This is the credit score page" }, statusCode: 200 });
-// }
+//credit score (reading data)
+const creditScore = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "This is the credit score page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "Credit score page can't be found." }, statusCode: 404 });
+    }
+};
 
-//financial tracker
-// (req, res, next) => {;
-//     res.status(200).json({ success: { message: "This is the financial tracker page" }, statusCode: 200 });
-// }
+//financial tracker (user can create, read, update, delete data in tracker)
+const financialTracker = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "This is the financial tracker page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "Financial tracker page can't be found." }, statusCode: 404 });
+    }
+};
 
-//forgot-login
-//(req, res, next) => { 
-//     res.status(200).json({ success: { message: "This is the forgot login page "}, statusCode: 200 });
-// // }
+//forgot-login (user can create, de)
+const forgotLogin = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "This is the forgot login page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "Forgot login page can't be found." }, statusCode: 404 });
+    }
+};
 
-// //login
-// (req, res, next) => {
-//     res.status(200).json({ success: { message: "This is the login" }, statusCode: 200 });
-// }
+//login
+const login = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "This is the login page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "Login page can't be found." }, statusCode: 404 });
+    }
+};
 
 //all users
-// (req, res, next) => {
-//     let allUsers = request.params;
-//     
-// }
+//     let allUsers = request.params; ??
 
 const allUsers = async (req, res, next) => {
     try {
@@ -62,9 +98,20 @@ const allUsers = async (req, res, next) => {
 //     res.status(200).json({ success: { message: "A single user was successfully selected" }, statusCode: 200 });
 // }
 
-//resources
-// // (req, res, next) => {
-//     res.status(200).json({ success: { message: "This is the resources page" }, statusCode: 200 });
-// }
+const getUser = async (req, res, next) => {
 
-module.exports = { admin, allUsers };
+};
+
+//resources
+const resources = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "This is the resources page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "Resources page can't be found." }, statusCode: 404 });
+    }
+};
+
+module.exports = { homePage, admin, allUsers, creditScore, financialTracker, forgotLogin, login, resources };
