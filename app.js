@@ -32,7 +32,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //use cors
-app.use(cors());    
+app.use(cors());
+
+//GET Requests
+//making a route for home page(index.html)
+app.get("/api/", (req, res, next) => {
+    res.status(200).json({ success: { message: "This is the homepage" }, statusCode: 200 });
+});
 
 //use to route to siteRouter.js
 app.use(routes);

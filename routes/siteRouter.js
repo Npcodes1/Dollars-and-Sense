@@ -8,11 +8,7 @@ const express = require("express");
 const router = express.Router();
 
 //import handler Functions from the controller directory
-const {homePage, admin, creditScore, financialTracker, forgotLogin, login, allUsers, resources} = require("../controller/siteCtrl");
-
-//GET Requests
-//making a route for home page(index.html)
-router.get("/api/", homePage);
+const {admin, creditScore, financialTracker, forgotLogin, login, allUsers, resources} = require("../controller/siteCtrl");
 
 //making a route for admin page (admin.html)
 router.get("/api/admin", admin);
