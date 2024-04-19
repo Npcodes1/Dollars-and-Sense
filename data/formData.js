@@ -20,7 +20,7 @@ const formData = [{
 {
     firstName: "Susie",
     lastName: "Carmichael",
-    message: "That's the final name in the coffee!"
+    message: "That's the final nail in the coffee!"
 }];
 
 module.exports = formData;

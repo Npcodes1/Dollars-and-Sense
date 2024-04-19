@@ -21,6 +21,7 @@ app.use(morgan("dev"));
 
 //defining routing variable to data
 const routes = require("./routes/siteRouter");
+const authRoutes = require("./routes/authRouter");
 
 //J-SON Derulo- middleware that unpacks/reads json data sent from client and helps server understand/work with the data
 app.use(express.json());
@@ -40,8 +41,9 @@ app.get("/api/", (req, res, next) => {
     res.status(200).json({ success: { message: "This is the homepage" }, statusCode: 200 });
 });
 
-//use to route to siteRouter.js
+//use the routes in the specified router files
 app.use(routes);
+app.use(authRoutes);
 
 //Server
 app.listen(PORT, () => {

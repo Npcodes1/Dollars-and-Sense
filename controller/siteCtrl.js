@@ -1,7 +1,10 @@
 //siteCtrl contains all the handler (callback) functions to be used for the routes in siteRouter.
 
-//summon the mock database file
+//summon the mock database file for users
 const usersData = require("../data/usersData");
+
+//summon the mock database file for form inputs
+const formData = require("../data/formData");
 
 //homepage (reading data)
 const homePage = async (req, res, next) => {
@@ -15,16 +18,42 @@ const homePage = async (req, res, next) => {
     }
 };
 
-
 //admin (possible reading, creating, updating and deleting data?)
 const admin = async (req, res, next) => {
     try {
         if (200) {
-            await res.status(200).json({ success: { message: "This is the admin page" }, statusCode: 200 });
+            await res.status(200).json({ success: { message: "This is the admin page" }, data: usersData, formData, statusCode: 200 });
         }
         
     } catch (error) {
         res.status(404).json({ error: { message: "Admin page can't be found." }, statusCode: 404 });
+    }
+};
+
+//all users
+//sending the user data to the admin page?
+const allUsers = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "Reference the users and list all of them." }, data: usersData, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "Users can't be found. Try again." }, statusCode: 404 });
+    }
+};
+
+//single user
+const getUser = async (req, res, next) => {
+    const { _id } = req.params;
+    const foundUser = usersData.find(usersData => usersData._id === Number(_id));
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "A single user was successfully selected" }, data: foundUser, statusCode: 200 });
+        }
+
+    } catch (error) {
+        res.status(404).json({ error: { message: "Resource can't be found." }, statusCode: 404 });
     }
 };
 
@@ -52,56 +81,6 @@ const financialTracker = async (req, res, next) => {
     }
 };
 
-//forgot-login (user can create, de)
-const forgotLogin = async (req, res, next) => {
-    try {
-        if (200) {
-            await res.status(200).json({ success: { message: "This is the forgot login page" }, statusCode: 200 });
-        }
-        
-    } catch (error) {
-        res.status(404).json({ error: { message: "Forgot login page can't be found." }, statusCode: 404 });
-    }
-};
-
-//login
-const login = async (req, res, next) => {
-    try {
-        if (200) {
-            await res.status(200).json({ success: { message: "This is the login page" }, statusCode: 200 });
-        }
-        
-    } catch (error) {
-        res.status(404).json({ error: { message: "Login page can't be found." }, statusCode: 404 });
-    }
-};
-
-//all users
-//     let allUsers = request.params; ??
-
-const allUsers = async (req, res, next) => {
-    try {
-        if (200) {
-            await res.status(200).json({ success: { message: "Reference the users and list all of them." }, data: usersData, statusCode: 200 });
-        }
-        
-    } catch (error) {
-        res.status(404).json({ error: { message: "Users can't be found. Try again." }, statusCode: 404 });
-    }
-};
-
-//single user
-// (req, res, next) => {
-//     // let allUsers = request.params;
-//     // let singleUser = allUsers.id;
-//     // console.log(singleUser);
-//     res.status(200).json({ success: { message: "A single user was successfully selected" }, statusCode: 200 });
-// }
-
-const getUser = async (req, res, next) => {
-
-};
-
 //resources
 const resources = async (req, res, next) => {
     try {
@@ -114,4 +93,4 @@ const resources = async (req, res, next) => {
     }
 };
 
-module.exports = { homePage, admin, allUsers, creditScore, financialTracker, forgotLogin, login, resources };
+module.exports = { homePage, admin, creditScore, financialTracker, resources, allUsers, getUser };
