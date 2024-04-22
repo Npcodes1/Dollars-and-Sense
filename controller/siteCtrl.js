@@ -81,6 +81,47 @@ const financialTracker = async (req, res, next) => {
     }
 };
 
+const createEntry = async (req, res, next) => {
+    //add what input entries I've decided for financial tracker? Do I need a separate handler function for the form information?
+
+    // const {} = req.body;
+
+    // const newEntry = new ({
+
+    // });
+
+    try {
+        await //add .save() to save the entry.
+        
+        res.status(200).json({ success: { message: "You've successfully created an entry on the page" }, statusCode: 200 });
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "There was an error. Please try again." }, statusCode: 404 });
+    }
+};
+
+const updateEntry = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "You've successfully updated an entry on the page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "There was an error. Please try again." }, statusCode: 404 });
+    }
+};
+
+const deleteEntry = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "You've successfully deleted an entry on the page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "There was an error. Please try again." }, statusCode: 404 });
+    }
+};
+
 //resources
 const resources = async (req, res, next) => {
     try {
@@ -93,4 +134,4 @@ const resources = async (req, res, next) => {
     }
 };
 
-module.exports = { homePage, admin, creditScore, financialTracker, resources, allUsers, getUser };
+module.exports = { homePage, admin, creditScore, financialTracker, resources, allUsers, getUser, createEntry, updateEntry, deleteEntry };
