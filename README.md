@@ -77,3 +77,6 @@
 
 -  04/16/2024 - I continued working on the backend, creating a formData mock database (to mimic when forms are submitted on the website) and moved the login and forgot-login routes and handler functions into the authRouter and authCtrl files, respectively. It's still a little confusing trying to understand everything but I think I'm understanding that the backend is looking for data upon request and if it's found in the associated database, then it will gather that data before sending back to the controller which forwards the data to the designated location (through the route).
 
+- 04/21/2024 - Added routes and handler functions using the CRUD operations. Need to confirm if it's possible to use handler functions in different routes. Like for the admin, if I wanted the ability to create, update, or delete the formData that's collected from when a user submits a form and also do the same for the usersData, is it possible?
+
+- 04/22/2024 - Worked on touching up styles on pages.

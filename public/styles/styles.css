@@ -25,7 +25,7 @@ body {
 /* Top Navigation Bar */
 .top-header {
     background-color: var(--indigo-dye);
-    padding: 0 1.5rem;
+    padding: 0 2.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -33,6 +33,7 @@ body {
 }
 
 .logo-container > a > img {
+    padding-top: 0.5rem;
     width: 200px;
 }
 
@@ -40,6 +41,7 @@ body {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    padding: 2rem 0 0;
 }
 
 .nav-links li {
@@ -198,9 +200,6 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#pieChart {
     width: 400px;
 }
 
