@@ -80,3 +80,5 @@
 - 04/21/2024 - Added routes and handler functions using the CRUD operations. Need to confirm if it's possible to use handler functions in different routes. Like for the admin, if I wanted the ability to create, update, or delete the formData that's collected from when a user submits a form and also do the same for the usersData, is it possible?
 
 - 04/22/2024 - Worked on touching up styles on pages.
+- 
+- 04/25/2024 - Reworked the styling of the HTML pages. Because I had the same contact form on every page of the project, I was having trouble figuring out how to route the form information from each page to the admin page. So I decided to create a new HTML page called Contact and put the contact form there. Then I removed the contact forms from the rest of the pages but put a link on the "Get in Touch" so it'll direct to the contact page.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resources</title>
+    <title>Contact Me</title>
     <link rel="stylesheet" href="./public/styles/styles.css" />
     <script defer src="./public/js/scripts.js"></script>
 
@@ -20,26 +20,29 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- To add chart.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-      <!-- Navigation Bar -->
-      <header class="top-header">
-        <div class="logo-container">
-          <a href="./index.html">
-            <img src="./public/images/DOLLAR$ & $EN$E LOGO.png" alt="site-logo" />
-          </a>
-        </div>
-        <nav class="navbar">
-          <ul class="nav-links">
-            <li><a href="./index.html">HOME</a></li>
-            <li><a href="./financial-tracker.html">FINANCIAL TRACKER</a></li>
-            <li><a href="./credit-score.html">CREDIT SCORE</a></li>
-            <li><a href="./resources.html">RESOURCES</a></li>
-            <li><a href="./contact.html">CONTACT</a></li>
-            <li><a href="./login.html">PROFILE</a></li>
-          </ul>
-        </nav>
-      </header>
+    <!-- Navigation Bar -->
+    <header class="top-header">
+      <div class="logo-container">
+        <a href="./index.html">
+          <img src="./public/images/DOLLAR$ & $EN$E LOGO.png" alt="site-logo" />
+        </a>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="./index.html">HOME</a></li>
+          <li><a href="./financial-tracker.html">FINANCIAL TRACKER</a></li>
+          <li><a href="./credit-score.html">CREDIT SCORE</a></li>
+          <li><a href="./resources.html">RESOURCES</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
+          <li><a href="./login.html">PROFILE</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <!-- Bottom Navigation Bar -->
     <header class="bottom-header">
@@ -80,55 +83,54 @@
     <main>
       <section class="section-container">
         <div class="content-wrapper">
-          <h1 class="h1-title">RESOURCES</h1>
-          <h2 class="h2-centered">Down Payment Assistance</h2>
-          <div class="resource-link">
-            <a
-              href="https://www.forbes.com/advisor/mortgages/down-payment-assistance-by-state/
-              https://www.whitehouse.gov/briefing-room/statements-releases/2023/03/09/fact-sheet-president-bidens-budget-lowers-housing-costs-and-expands-access-to-affordable-rent-and-home-ownership/"
-              target="_blank"
-              >Down Payment Assistance by State</a
-            >
-          </div>
-          <div class="resource-link">
-            <a
-              href="https://www.cnbc.com/2022/09/01/bank-of-america-to-help-minorities-buy-first-homes-with-new-mortgages.html"
-              target="_blank"
-              >Down Payment Assistance by State</a
-            >
-          </div>
-          <h2 class="h2-centered">Loan Programs</h2>
-          <div class="resource-link">
-            <a
-              href="https://www.zillow.com/learn/first-time-buyer-loan-programs/"
-              target="_blank"
-              >First Time Buyer Loan Programs</a
-            >
-          </div>
-          <div class="resource-link">
-            <a
-              href="https://www.homelight.com/blog/buyer-home-loan-programs-minorities-low-income/"
-              target="_blank"
-              >16 Loan Programs for Low-income and Minority Home-buyers</a
-            >
-          </div>
-          </div>
-          <h2 class="h2-centered">Grant Programs</h2>
-          <div class="resource-link">
-            <a
-              href="https://homebuyer.com/learn/first-time-home-buyer-grants-programs"
-              target="_blank"
-              >First Time Buyer Grant Programs</a
-            >
-          </div>
-          <div class="resource-link">
-            <a
-            href="https://www.bankofamerica.com/mortgage/affordable-housing-programs/"
-              target="_blank"
-              >Affordable Housing Programs</a
-            >
-          </div>
+          <h2 class="h2-title">GET IN TOUCH</h2>
         </div>
+
+        <!-- Message Form -->
+        <form action="#">
+          <div class="form-fields">
+            <!-- First Name -->
+            <div class="form-details">
+              <label for="first-name">First Name:</label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="First Name"
+                required
+              />
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-details">
+              <label for="last-name">Last Name:</label>
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+
+            <!-- Message Box -->
+            <div class="form-details">
+              <label for="message">Message: </label>
+              <textarea
+                name="message"
+                id="message"
+                cols="40"
+                rows="10"
+                placeholder="Message"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-submit">
+              <button class="btn" type="submit">Send Message</button>
+            </div>
+          </div>
+        </form>
       </section>
     </main>
 

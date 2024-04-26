@@ -273,13 +273,21 @@ textarea {
     z-index: 2;
 }
 
+.social-media {
+    margin: 0;
+    text-align: center;
+}
+
+.social-media a {
+    text-decoration: none;
+}
+
 .footer-h2-title {
     color: var(--snow);
 }
 
-.social-media {
-    margin: 0;
-    text-align: center;
+.footer-h2-title:hover {
+    color: var(--cinereous-ashy-grey);
 }
 
 .footer-links {
