@@ -34,7 +34,7 @@ body {
 
 .logo-container > a > img {
     padding-top: 0.5rem;
-    width: 200px;
+    width: 250px;
 }
 
 .nav-links {
@@ -195,12 +195,14 @@ textarea {
 
 /* Demographics Pie Chart */
 .pie-container {
+    min-width: 35vw;
+    max-width: 40vw;
+    height: auto;
     margin: auto;
-    padding: 1rem 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 400px;
+    justify-content: center;
+    padding: 1rem 0;
 }
 
 /* Quiz */
@@ -405,11 +407,6 @@ textarea {
         display: flex;
         flex-direction: column;
     }
-    /* Logo */
-    .logo-container > a > img {
-        margin-left: 0;
-        width: 250px;
-    }
 
     /* Top Navigation Bar */
     .nav-links {
@@ -479,10 +476,6 @@ textarea {
     .nav-links {
         display: none;
     }
-    
-    .pie-container {
-        width: 100%;
-    }
 
     /* Quiz */
     .form-questions-wrapper > ol {
@@ -512,6 +505,10 @@ textarea {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+
+    .logo-container > a > img {
+        width: 200px;
     }
 
     /* Hiding bottom navigation bar when in laptop size. */
