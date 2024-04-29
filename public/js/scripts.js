@@ -10,12 +10,12 @@ const pieChart = document.querySelector("#pieChart");
 new Chart(pieChart, {
     type: "pie",
     data: {
-    labels: ["66% Caucasian", "14% Hispanic", "11% Asian American", "9% African American"],
+    labels: ["81% Caucasian", "7% Hispanic/Latinx", "7% Black/African American", "6% Asian/Pacific Islander", "6% Other" ],
     datasets: [
         {
         label: "Demographic percentages for first-time home buyers",
-        backgroundColor: ["#f1c40f", "#e67e22", "#399B53", "#023B58"],
-        data: [66, 14, 11, 9]
+        backgroundColor: ["#e67e22", "#f1c40f", "#399B53", "#023B58", "#482728"],
+        data: [81, 7, 7, 6, 6]
         }
     ],
     }
@@ -80,3 +80,6 @@ const resetBtn = function () {
 };
 
 clearBtn.addEventListener("click", resetBtn);
+
+
+

@@ -8,45 +8,43 @@ const express = require("express");
 const router = express.Router();
 
 //import handler Functions from the controller directory
-const {admin, creditScore, financialTracker, allUsers, getUser, resources, createEntry, updateEntry, deleteEntry} = require("../controller/siteCtrl");
+const {financialTracker, createEntry, updateEntry, deleteEntry,  creditScore, resources, contact, sendMessage, profile, admin} = require("../controller/siteCtrl");
 
-//making a route for admin page (admin.html) - capability to read the admin page
-router.get("/api/admin", admin);
-
-//capability to create in the admin page?
-// router.post("/api/admin", );
-
-// //capability to update in the admin page?
-// router.put("/api/admin", );
-
-// //capability to delete in the admin page?
-// router.delete("/api/admin", );
-
-
-//making a route for credit score page (credit-score.html)
-router.get("/api/credit-score", creditScore);
-
-//making a route for financial tracker page (financial-tracker.html)
-//CRUD operations for financial tracker? Will this edit the page or the input fields? Goal is that user can edit the financial tracker inputs but not the overall page?
+//Financial Tracker
+//Goal is that user can edit the financial tracker inputs to add/edit/remove entries
+//making GET route to read financial tracker page (financial-tracker.html)
 router.get("/api/financial-tracker", financialTracker);
 
-//capability to create in the financial tracker page
-router.post("/api/financial-tracker", createEntry);
+//capability to create new entry
+router.post("/api/financial-tracker/create", createEntry);
 
-//capability to update in the admin page
-router.put("/api/financial-tracker", updateEntry);
+//capability to update entry
+router.put("/api/financial-tracker/edit", updateEntry);
 
-//capability to delete in the admin page
-router.delete("/api/financial-tracker", deleteEntry);
+//capability to delete entry
+router.delete("/api/financial-tracker/delete", deleteEntry);
 
-//making a route to get all users
-router.get("/api/users", allUsers);
+//Credit Score
+//making a GET route to read credit score page (credit-score.html)
+router.get("/api/credit-score", creditScore);
 
-//making a route to get a single user
-router.get("/api/users/:_id", getUser);
-
-//making a route for resources page (resources.html)
+//Resources
+//making a GET route to read resources page (resources.html)
 router.get("/api/resources", resources);
+
+//Contact
+//making a GET route to read contact page (resources.html)
+router.get("/api/contact", contact);
+
+//Use contact form to send message
+router.post("/api/admin", sendMessage);
+
+//Profile
+router.get("/api/profile", profile);
+
+//Admin
+//making a GET route to read admin page (admin.html) - capability to read the admin page
+router.get("/api/admin", admin);
 
 // exporting router
 module.exports = router;

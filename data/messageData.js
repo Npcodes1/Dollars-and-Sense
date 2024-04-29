@@ -1,11 +1,11 @@
-//to store all the contact form information
-// const formData = [{
+//to store all the "Get in Touch" contact form information
+// const messageData = [{
 //     firstName: "",
 //     lastName: "",
 //     message: ""
 // }];
 
-const formData = [{
+const messageData = [{
     firstName: "Nicole",
     lastName: "Payne",
     message: "Am I doing this right?"
@@ -23,4 +23,4 @@ const formData = [{
     message: "That's the final nail in the coffee!"
 }];
 
-module.exports = formData;
+module.exports = messageData;

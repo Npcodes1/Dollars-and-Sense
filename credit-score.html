@@ -41,40 +41,40 @@
       </nav>
     </header>
 
-  <!-- Bottom Navigation Bar -->
-  <header class="bottom-header">
-    <nav class="navbar-bottom">
-      <a href="./index.html" class="nav-links-bottom">
-        <i class="fa-solid fa-house"></i>
-        <span class="nav-text">Home</span>
-      </a>
-      <a href="./financial-tracker.html" class="nav-links-bottom">
-        <i class="fa-solid fa-coins"></i>
-        <span class="nav-text">Financial Tracker</span>
-      </a>
-      <a href="./credit-score.html" class="nav-links-bottom">
-        <i class="fa-solid fa-building-columns"></i>
-        <span class="nav-text">Credit Score</span>
-      </a>
-      <a href="./resources.html" class="nav-links-bottom">
-        <i class="fa-solid fa-book"></i>
-        <span class="nav-text">Resources</span>
-      </a>
-      <a href="./login.html" class="nav-links-bottom">
-        <i class="fa-solid fa-user"></i>
-        <span class="nav-text">Profile</span>
-      </a>
-    </nav>
-  </header>
+    <!-- Bottom Navigation Bar -->
+    <header class="bottom-header">
+      <nav class="navbar-bottom">
+        <a href="./index.html" class="nav-links-bottom">
+          <i class="fa-solid fa-house"></i>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="./financial-tracker.html" class="nav-links-bottom">
+          <i class="fa-solid fa-coins"></i>
+          <span class="nav-text">Financial Tracker</span>
+        </a>
+        <a href="./credit-score.html" class="nav-links-bottom">
+          <i class="fa-solid fa-building-columns"></i>
+          <span class="nav-text">Credit Score</span>
+        </a>
+        <a href="./resources.html" class="nav-links-bottom">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-text">Resources</span>
+        </a>
+        <a href="./login.html" class="nav-links-bottom">
+          <i class="fa-solid fa-user"></i>
+          <span class="nav-text">Profile</span>
+        </a>
+      </nav>
+    </header>
 
-  <!-- Wave svg -->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
-    <path
-      fill="#023b58"
-      fill-opacity="1"
-      d="M0,64L80,58.7C160,53,320,43,480,69.3C640,96,800,160,960,181.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-    ></path>
-  </svg>
+    <!-- Wave svg -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1440 250">
+      <path
+        fill="#023b58"
+        fill-opacity="1"
+        d="M0,64L80,58.7C160,53,320,43,480,69.3C640,96,800,160,960,181.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+      ></path>
+    </svg>
 
     <!-- Main Body -->
     <main>
@@ -132,21 +132,30 @@
           <p class="content-paragraph">
             There are many ways you can check your credit score. Your credit card company may include your recent score on your bill statements or on their website or app. You can also request a copy of your credit report from each of the 3 main credit bureaus once a year.
           </p>
-          <div class="form-submit">
-            <button class="btn" src="https://www.annualcreditreport.com/requestReport/landingPage.action">Request a Credit Report</button>
-            <div class="credit-score-container">
+
+          <!-- Request a Credit Score -->
+          <div class="credit-score-container">
+            <!-- Request Credit Score Button -->
+            <div class="form-submit">
+              <button class="btn" src="https://www.annualcreditreport.com/requestReport/landingPage.action">Request Credit Report</button>
+            </div>
+            <!-- Credit Score Img -->
+            <div class="content-image-wrapper">
+              <img
+                class="credit-progress"
+                src="./public/images/credit score.jpg"
+                alt="credit-score-image"
+              />
+            </div>
+            <!-- Cited Source -->
+            <div class="resource-link">
+              <a
+              href="https://www.fidelity.com/learning-center/smart-money/what-is-a-credit-score"
+              target="_blank">
+              Information provided by Fidelity
+              </a>
+            </div>
           </div>
-          <div class="content-image-wrapper">
-            <img
-              class="credit-progress"
-              src="./public/images/credit score.jpg"
-              alt="credit-score-image"
-            />
-          </div>
-          <a
-            href="https://www.fidelity.com/learning-center/smart-money/what-is-a-credit-score"
-            target="_blank"
-          >Information provided by Fidelity</a>
         </div>
       </section>
     </main>

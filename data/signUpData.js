@@ -1,5 +1,5 @@
-//database for all the users' login information
-// const usersData = [{
+//database for all the users' signUp information
+// const signUpData = [{
 //     id: "",
 //     firstName: "",
 //     lastName: "",
@@ -7,7 +7,7 @@
 //     password: ""
 // }];
 
-const usersData = [{
+const signUpData = [{
     _id: "1",
     firstName: "Mickey",
     lastName: "Mouse",
@@ -33,4 +33,4 @@ const usersData = [{
 
 }];
 
-module.exports = usersData;
+module.exports = signUpData;

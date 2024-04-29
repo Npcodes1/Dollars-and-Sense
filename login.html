@@ -68,7 +68,7 @@
     </header>
 
     <!-- Wave svg -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1440 250">
       <path
         fill="#023b58"
         fill-opacity="1"
@@ -88,7 +88,7 @@
           <div class="form-fields">
             <!-- Username -->
             <div class="form-details">
-              <label for="first-name">Username:</label>
+              <label for="user-name">Username:</label>
               <input
                 type="text"
                 name="user-name"
@@ -114,13 +114,16 @@
             <div class="form-submit">
               <button class="btn" type="submit">Login</button>
             </div>
-          </div>
 
-          <!-- Forgot Username/Password -->
-          <div class="forgot-login-container">
-            <a class="forgot-login" href="./forgot-login.html"
-              >Forgot Username/Password</a
-            >
+            <!-- Forgot Username/Password -->
+            <div class="form-link">
+              <span
+                >Already have an account but can't login?
+                <a class="forgot-login" href="./forgot-login.html"
+                  >Forgot Username/Password</a
+                >
+              </span>
+            </div>
           </div>
         </form>
       </section>
@@ -172,7 +175,7 @@
 
             <!-- Phone Number -->
             <div class="form-details">
-              <label for="last-name">Phone Number:</label>
+              <label for="phone-number">Phone Number:</label>
               <input
                 type="number"
                 name="phone-number"
