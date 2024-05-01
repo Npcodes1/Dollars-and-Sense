@@ -1,5 +1,4 @@
 //set up MongoDB connection w/o .env file
-
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);

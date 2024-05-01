@@ -5,6 +5,9 @@ const messageData = require("../data/messageData");
 //summon the mock database file for users
 const signUpData = require("../data/signUpData");
 
+
+
+
 //login
 const login = async (req, res, next) => {
     try {
@@ -39,13 +42,11 @@ const loginFailed = async (req, res, next) => {
 //   req.logout((error) => {
 //     if (error) {
 //         res.status(400).json({ error: { message: "There was a problem logging out." }, statusCode: 400 });            
-//         } else {
-//                 res.status(200).json({ success: { message: "User successfully logged out" }, statusCode: 200 });
-//         }
+//     } res.status(200).json({ success: { message: "User successfully logged out." }, statusCode: 200 });
 //     });
 // };
 
-//SignUp Request- not working
+// //SignUp Request- not working
 // const signUpRequest = async (req, res, next) => {
 //     const { firstName, lastName, email, password } = req.body;
 //     if (error) {
@@ -64,7 +65,7 @@ const loginFailed = async (req, res, next) => {
 //     } catch (error) {
 //         res.status(500).json({ error: { message: "Internal server error." }, statusCode: 500 });
 //     }
-// }
+// };
 
 
 //Admin access to get all users
@@ -129,4 +130,17 @@ const getMessage = async (req, res, next) => {
     }
 };
 
-module.exports = { login, localLogin, loginFailed, signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage };
+//Admin access only 
+//admin (possible reading, creating, updating and deleting data?)
+const admin = async (req, res, next) => {
+    try {
+        if (200) {
+            await res.status(200).json({ success: { message: "This is the admin page" }, statusCode: 200 });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: { message: "Admin page can't be found." }, statusCode: 404 });
+    }
+};
+
+module.exports = { login, localLogin, loginFailed, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin };

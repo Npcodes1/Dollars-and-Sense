@@ -8,7 +8,7 @@ const express = require("express");
 const router = express.Router();
 
 //import handler Functions from the controller directory
-const {login, localLogin, loginFailed, logOutRequest, signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage} = require("../controller/authCtrl");
+const {login, localLogin, loginFailed, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin} = require("../controller/authCtrl");
 
 //Profile (for signup/login form)
 //making a route to read Profile page (login.html)
@@ -23,7 +23,7 @@ router.get("/api/auth/login/failed", loginFailed);
 // //Detect for logging out
 // router.get("/api/auth/logout", logOutRequest);
 
-// //Detect for signing up
+// // //Detect for signing up
 // router.get("/api/auth/signup", signUpRequest);
 
 //User data after signing up
@@ -45,7 +45,7 @@ router.get("/api/admin/message/:_id", getMessage);
 
 
 //Get in Touch Form
-//making a routes to find all form Data 
+
 
 //making a route to search for a single form Data
 
@@ -55,6 +55,9 @@ router.get("/api/admin/message/:_id", getMessage);
 
 //making a route to delete form data
 
+//Admin
+//making a GET route to read admin page (admin.html) - capability to read the admin page
+router.get("/api/admin", admin);
 
 // exporting router
 module.exports = router;

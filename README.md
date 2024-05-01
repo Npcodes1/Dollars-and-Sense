@@ -82,4 +82,6 @@
 - 04/22/2024 - Worked on touching up styles on pages.
 - 
 - 04/25/2024 - Reworked the styling of the HTML pages. Because I had the same contact form on every page of the project, I was having trouble figuring out how to route the form information from each page to the admin page. So I decided to create a new HTML page called Contact and put the contact form there. Then I removed the contact forms from the rest of the pages but put a link on the "Get in Touch" so it'll direct to the contact page. Also, added media queries to scale the pie chart so it's mobile friendly.
-- 
+- 04/28/2024 - Worked on the routes and controller files.
+- 04/29/2024 - Continued working on the routes and controller files and started adding the model files.
+- 04/30/2024 - Worked on setting up MongoDb and continued refactoring the model files. Also started refactoring html code for the sign up form.

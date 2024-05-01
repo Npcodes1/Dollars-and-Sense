@@ -8,7 +8,7 @@ const express = require("express");
 const router = express.Router();
 
 //import handler Functions from the controller directory
-const {financialTracker, createEntry, updateEntry, deleteEntry,  creditScore, resources, contact, sendMessage, profile, admin} = require("../controller/siteCtrl");
+const {financialTracker, createEntry, updateEntry, deleteEntry,  creditScore, resources, contact, sendMessage, profile} = require("../controller/siteCtrl");
 
 //Financial Tracker
 //Goal is that user can edit the financial tracker inputs to add/edit/remove entries
@@ -33,18 +33,16 @@ router.get("/api/credit-score", creditScore);
 router.get("/api/resources", resources);
 
 //Contact
-//making a GET route to read contact page (resources.html)
+//making a GET route to read contact page (contact.html)
 router.get("/api/contact", contact);
 
 //Use contact form to send message
-router.post("/api/admin", sendMessage);
+router.post("/api/admin/send", sendMessage);
 
 //Profile
 router.get("/api/profile", profile);
 
-//Admin
-//making a GET route to read admin page (admin.html) - capability to read the admin page
-router.get("/api/admin", admin);
+
 
 // exporting router
 module.exports = router;
