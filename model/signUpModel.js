@@ -9,7 +9,6 @@ const signUpSchema = new Schema({
         type: String,
         required: [true, "A first name is required."],
         minLength: [2, "The minimum number of characters is two."]
-
     },
 
     lastName: {
@@ -37,7 +36,6 @@ const signUpSchema = new Schema({
         required: [true, "A username is required."],
         minLength: [8, "The minimum number of characters is eight."],
         unique: true
-
     },
 
     password: {

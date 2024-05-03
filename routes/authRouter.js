@@ -8,34 +8,34 @@ const express = require("express");
 const router = express.Router();
 
 //import handler Functions from the controller directory
-const {login, localLogin, loginFailed, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin} = require("../controller/authCtrl");
+const {login, localLogin, loginFailed, signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin} = require("../controller/authCtrl");
 
 //Profile (for signup/login form)
-//making a route to read Profile page (login.html)
+//making a GET route to read Profile page (login.html)
 router.get("/api/auth/login", login);
 
-// //Detect if user logged in
+//Detect if user logged in
 router.get("/api/auth/login/local", localLogin);
 
-// //Detect for failed login attempts
+//Detect for failed login attempts
 router.get("/api/auth/login/failed", loginFailed);
 
 // //Detect for logging out
 // router.get("/api/auth/logout", logOutRequest);
 
-// // //Detect for signing up
-// router.get("/api/auth/signup", signUpRequest);
+//Detect for signing up
+router.get("/api/auth/signup", signUpRequest); //doesn't work
+
+//Forgot Login Form
+//making a GET route to read forgot login page (forgot-login.html)
+router.get("/api/auth/forgot-login", forgotLogin);
 
 //User data after signing up
 //making a route to get all users
 router.get("/api/admin/users", getAllUsers);
 
-//making a route to get a single user
+//making a GET route to get a single user
 router.get("/api/admin/users/:_id", getUser);
-
-//Forgot Login Form
-//making a route to read forgot login page (forgot-login.html)
-router.get("/api/auth/forgot-login", forgotLogin);
 
 //Get all messages
 router.get("/api/admin/messages", getAllMessages);
@@ -45,7 +45,6 @@ router.get("/api/admin/message/:_id", getMessage);
 
 
 //Get in Touch Form
-
 
 //making a route to search for a single form Data
 

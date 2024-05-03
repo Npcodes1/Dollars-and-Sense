@@ -9,10 +9,12 @@
   "author": "Nicole Payne",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "chart.js": "^4.4.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "mongodb": "^6.5.0",
     "mongoose": "^8.3.0",
     "morgan": "^1.10.0"
   },

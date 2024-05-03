@@ -1,3 +1,5 @@
+//import bcrypt
+const bcrypt = require("bcrypt");
 
 //summon the mock database file for form inputs
 const messageData = require("../data/messageData");
@@ -5,15 +7,18 @@ const messageData = require("../data/messageData");
 //summon the mock database file for users
 const signUpData = require("../data/signUpData");
 
+//import User Model
+const User = require("../model/signUpModel");
 
+//import Message Model
+const Send = require("../model/contactModel");
 
+//write code to give ability to create, edit, delete login
 
 //login
 const login = async (req, res, next) => {
     try {
-        if (200) {
-            await res.status(200).json({ success: { message: "This is the login page" }, statusCode: 200 });
-        }
+        await res.status(200).json({ success: { message: "This is the login page" }, statusCode: 200 });
         
     } catch (error) {
         res.status(404).json({ error: { message: "Login page can't be found." }, statusCode: 404 });
@@ -23,9 +28,7 @@ const login = async (req, res, next) => {
 //Local login
 const localLogin = async (req, res, next) => {
     try {
-        if (200) {
-            await res.status(200).json({ success: { message: "User logged in." }, statusCode: 200 });
-        }
+        await res.status(200).json({ success: { message: "User logged in." }, statusCode: 200 });
         
     } catch (error) {
         res.status(404).json({ error: { message: "User couldn't be logged in." }, statusCode: 404 });
@@ -46,101 +49,85 @@ const loginFailed = async (req, res, next) => {
 //     });
 // };
 
-// //SignUp Request- not working
-// const signUpRequest = async (req, res, next) => {
-//     const { firstName, lastName, email, password } = req.body;
-//     if (error) {
-//         return next(error);
-//     }
-//     const newUser = new User({
-//         firstName,
-//         lastName,
-//         email,
-//         password
-//     });
-
-//     try {
-//         newUser.save();
-//         res.status(201).json({ success: { message: "New User has been created." }, data: { firstName, lastName, email }, statusCode: 201 });
-//     } catch (error) {
-//         res.status(500).json({ error: { message: "Internal server error." }, statusCode: 500 });
-//     }
-// };
-
-
-//Admin access to get all users
-const getAllUsers = async (req, res, next) => {
-
-    try {
-        await User.find({}).then(users => res.status(200).json({ success: { message: "Reference the users and list all of them." }, data: signUpData, statusCode: 200 }));
-        
-    } catch (error) {
-        res.status(404).json({ error: { message: "Users can't be found. Try again." }, statusCode: 404 });
-    }
-};
-
-//single user
-const getUser = async (req, res, next) => {
-    const { _id } = req.params;
-    const foundUser = signUpData.find(usersData => usersData._id === Number(_id));
-    try {
-        if (200) {
-            await res.status(200).json({ success: { message: "A single user was successfully selected" }, data: foundUser, statusCode: 200 });
+// SignUp Request- creating a new user - not working
+const signUpRequest = async (req, res, next) => {
+    const { firstName, lastName, email, password } = req.body;
+    bcrypt.hash(password, 10, async (error, hashedPassword) => {
+        if (error) {
+            return next(error);
         }
+    
+        const newUser = new User({
+            firstName,
+            lastName,
+            email,
+            password: hashedPassword
+        });
 
-    } catch (error) {
-        res.status(404).json({ error: { message: "User can't be found." }, statusCode: 404 });
-    }
+        try {
+            await newUser.save();
+            req.login(newUser, (err) => {
+                if (err) {
+                    res.status(400).json({ error: { message: "Something went wrong while signing up. Please try again!" }, statusCode: 400 }); 
+                }
+            });
+
+            res.status(201).json({ success: { message: "New user has been created." }, data: { firstName, lastName, email }, statusCode: 201 });
+            //to catch attempts on creating duplicate accounts with same username
+        } catch (error) {
+            if (err.code === 11000 && err.keyPattern.username) {
+                res.status(400).json({ error: { message: "Username already exists. Please enter another username." }, statusCode: 400 });
+            } else {
+                res.status(500).json({ error: { message: "Internal server error." }, statusCode: 500 });
+            }
+        }
+    });
 };
 
 //forgot-login
 const forgotLogin = async (req, res, next) => {
     try {
-        if (200) {
-            await res.status(200).json({ success: { message: "This is the forgot login page" }, statusCode: 200 });
-        }
+        await res.status(200).json({ success: { message: "This is the forgot login page" }, statusCode: 200 });
         
     } catch (error) {
         res.status(404).json({ error: { message: "Forgot login page can't be found." }, statusCode: 404 });
     }
 };
 
-// getAllMessages- Admin access
-const getAllMessages = async (req, res, next) => {
-    try {
-        if (200) {
-            await res.status(200).json({ success: { message: "Reference the messages from the contact form and list all of them." }, data: messageData, statusCode: 200 });
-        }
-        
-    } catch (error) {
-        res.status(404).json({ error: { message: "Users can't be found. Try again." }, statusCode: 404 });
-    }
+//Admin access to get all users
+const getAllUsers = async (req, res, next) => {
+    await User.find({}).then(users => res.status(200).json({ success: { message: "Reference the users and list all of them." }, data: signUpData, statusCode: 200 }));
 };
 
+//get single user -not working
+const getUser = async (req, res, next) => {
+    const { _id } = req.params;
+    await User.findOne({ _id: _id }).then((user) => {
+        res.status(200).json({ success: { message: "A single user was successfully selected" }, data: user, signUpData, statusCode: 200 });
+    })
+};
+
+// getAllMessages
+const getAllMessages = async (req, res, next) => {
+    await Send.find({}).then(message => res.status(200).json({ success: { message: "Reference the messages from the contact form and list all of them." }, data: messageData, statusCode: 200 }));
+};
+
+//get one message -not working
 const getMessage = async (req, res, next) => {
     const { _id } = req.params;
-    const foundMessage = signUpData.find(messageData => messageData._id === Number(_id));
-    try {
-        if (200) {
-            await res.status(200).json({ success: { message: "A single user was successfully selected" }, data: foundMessage, statusCode: 200 });
-        }
-
-    } catch (error) {
-        res.status(404).json({ error: { message: "Resource can't be found." }, statusCode: 404 });
-    }
+    Send.findOne({ _id: _id}).then(message => {
+        res.status(200).json({ success: { message: "A single user was successfully selected" }, data: message, Send, statusCode: 200 });
+    });
 };
 
-//Admin access only 
-//admin (possible reading, creating, updating and deleting data?)
+
 const admin = async (req, res, next) => {
     try {
-        if (200) {
-            await res.status(200).json({ success: { message: "This is the admin page" }, statusCode: 200 });
-        }
+        await res.status(200).json({ success: { message: "This is the admin page" }, statusCode: 200 });
         
     } catch (error) {
         res.status(404).json({ error: { message: "Admin page can't be found." }, statusCode: 404 });
     }
 };
 
-module.exports = { login, localLogin, loginFailed, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin };
+module.exports = { login, localLogin, loginFailed, signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin };
