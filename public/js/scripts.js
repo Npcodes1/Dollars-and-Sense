@@ -82,4 +82,92 @@ const resetBtn = function () {
 clearBtn.addEventListener("click", resetBtn);
 
 
+//Financial Tracker
+let expenses = [];
+let totalAmount = 0;
 
+//Selecting transaction
+const selectedCategory = document.querySelector("#selected-category");
+
+const dateInput = document.querySelector("#date-input");
+
+const amountInput = document.querySelector("#amount-input");
+
+const noteInput = document.querySelector("#note-input")
+
+//To click the button
+const addTransaction = document.querySelector("#add-transaction");
+
+//Selecting the table
+const expenseTableBody = document.querySelector(".expense-table-body");
+
+//Selecting the total
+const totalAmountCell = document.querySelector("#total-amount");
+
+const addExpense = () => {
+  const category = selectedCategory.value;
+  const date = dateInput.value;
+  const amount = Number(amountInput.value);
+  const note = noteInput.value;
+
+  expenses.push({ category, date, amount, note })
+
+  totalAmount += amount;
+  totalAmountCell.innerHTML = totalAmount;
+
+  const newRow = expenseTableBody.insertRow();
+
+  //create new cells
+  const categoryCell = newRow.insertCell();
+  const dateCell = newRow.insertCell();
+  const amountCell = newRow.insertCell();
+  const deleteCell = newRow.insertCell();
+
+  //delete cells
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML = "Delete";
+  const deleteRow = () => {
+    expenses.splice(expenses.indexOf(expense));
+    totalAmount -= expense.amount;
+    totalAmountCell.innerHTML = totalAmount;
+    expenseTableBody.removeChild(newRow);
+  }
+  deleteBtn.addEventListener("click", deleteRow)
+}
+
+addTransaction.addEventListener("click", addExpense);
+
+const expense = expenses[expenses.length - 1];
+categoryCell.innerHTML = expense.category;
+dateCell.innerHTML = expense.date;
+amountCell.innerHTML = expense.amount;
+deleteCell.appendChild(deleteBtn);
+
+
+//For loop to Update expenses
+for (const expense of expenses) {
+  totalAmount += expense.amount;
+  totalAmountCell.innerHTML = totalAmount;
+  
+  const newRow = expenseTableBody.insertRow();
+  const categoryCell = newRow.insertCell();
+  const dateCell = newRow.insertCell();
+  const amountCell = newRow.insertCell();
+  const deleteCell = newRow.insertCell();
+
+  
+const deleteBtn = document.createElement("button");
+deleteBtn.innerHTML = "Delete";
+const deleteRow = () => {
+  expenses.splice(expenses.indexOf(expense));
+  totalAmount -= expense.amount;
+  totalAmountCell.innerHTML = totalAmount;
+  expenseTableBody.removeChild(newRow);
+}
+deleteBtn.addEventListener("click", deleteRow);
+categoryCell.innerHTML = expense.category;
+dateCell.innerHTML = expense.date;
+amountCell.innerHTML = expense.amount;
+deleteCell.appendChild(deleteBtn);
+
+}

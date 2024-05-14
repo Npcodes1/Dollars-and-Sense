@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");
 
 //summon the mock database file for form inputs
-const messageData = require("../data/messageData");
+// const messageData = require("../data/messageData");
 
 //summon the mock database file for users
 const signUpData = require("../data/signUpData");
@@ -15,39 +15,6 @@ const Send = require("../model/contactModel");
 
 //write code to give ability to create, edit, delete login
 
-//login
-const login = async (req, res, next) => {
-    try {
-        await res.status(200).json({ success: { message: "This is the login page" }, statusCode: 200 });
-        
-    } catch (error) {
-        res.status(404).json({ error: { message: "Login page can't be found." }, statusCode: 404 });
-    }
-};
-
-//Local login
-const localLogin = async (req, res, next) => {
-    try {
-        await res.status(200).json({ success: { message: "User logged in." }, statusCode: 200 });
-        
-    } catch (error) {
-        res.status(404).json({ error: { message: "User couldn't be logged in." }, statusCode: 404 });
-    }
-};
-
-//Login Failed
-const loginFailed = async (req, res, next) => {
-    res.status(401).json({ success: { error: "User or password was incorrect. Please try again." }, statusCode: 401 });  
-};
-
-// //Logout request -not working
-// const logOutRequest = async (req, res, next) => {
-//   req.logout((error) => {
-//     if (error) {
-//         res.status(400).json({ error: { message: "There was a problem logging out." }, statusCode: 400 });            
-//     } res.status(200).json({ success: { message: "User successfully logged out." }, statusCode: 200 });
-//     });
-// };
 
 // SignUp Request- creating a new user - not working
 const signUpRequest = async (req, res, next) => {
@@ -109,7 +76,16 @@ const getUser = async (req, res, next) => {
 
 // getAllMessages
 const getAllMessages = async (req, res, next) => {
-    await Send.find({}).then(message => res.status(200).json({ success: { message: "Reference the messages from the contact form and list all of them." }, data: messageData, statusCode: 200 }));
+    try {
+        await Send.find({})
+        .then(sends => 
+            res.status(200)
+            .json({ success: { message: "Reference the messages from the contact form and list all of them." }, data: sends, statusCode: 200 }));
+    } catch (error) {
+        res
+        .status(400)
+        .json({ error: { message: "Something went wrong getting all the messages!" }});
+    }
 };
 
 //get one message -not working
@@ -130,4 +106,4 @@ const admin = async (req, res, next) => {
     }
 };
 
-module.exports = { login, localLogin, loginFailed, signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin };
+module.exports = { signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin };

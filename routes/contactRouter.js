@@ -13,7 +13,7 @@ const {contact, sendMessage} = require("../controller/contactCtrl");
 router.get("/api/contact", contact);
 
 //Use contact form to send message
-router.get("/api/admin/send", sendMessage);
+router.post("/api/send", sendMessage);
 
 // exporting router
 module.exports = router;

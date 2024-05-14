@@ -8,20 +8,9 @@ const express = require("express");
 const router = express.Router();
 
 //import handler Functions from the controller directory
-const {login, localLogin, loginFailed, signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin} = require("../controller/authCtrl");
+const {signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin} = require("../controller/authCtrl");
 
-//Profile (for signup/login form)
-//making a GET route to read Profile page (login.html)
-router.get("/api/auth/login", login);
 
-//Detect if user logged in
-router.get("/api/auth/login/local", localLogin);
-
-//Detect for failed login attempts
-router.get("/api/auth/login/failed", loginFailed);
-
-// //Detect for logging out
-// router.get("/api/auth/logout", logOutRequest);
 
 //Detect for signing up
 router.get("/api/auth/signup", signUpRequest); //doesn't work
