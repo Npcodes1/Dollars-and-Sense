@@ -1,16 +1,36 @@
-//add routes for login, logout, login/local, login/failed...
-//Profile (for signup/login form)
-//making a GET route to read Profile page (login.html)
-router.get("/api/auth/login", login);
+//Site Router
 
-//Detect if user logged in
-router.get("/api/auth/login/local", localLogin);
+// importing express and passport
+const express = require("express");
+const passport = require("passport");
+
+const { localLoginFailed } = require("../controller/siteCtrl");
+
+//importing express.Router() to handle different requests
+const router = express.Router();
+
+//Local login
+router.post(
+  "/api/login/local",
+  passport.authenticate("local", { failureRedirect: "/api/login/failed" }),
+  (req, res, next) => {
+    res.status(200).json({
+      success: { message: "User logged in." },
+      data: {
+        username: req.user.username,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+      },
+      statusCode: 200,
+    });
+  }
+);
 
 //Detect for failed login attempts
-router.get("/api/auth/login/failed", loginFailed);
+router.get("/api/login/failed", localLoginFailed);
 
 // //Detect for logging out
-// router.get("/api/auth/logout", logOutRequest);
+router.get("/api/logout", logOutRequest);
 
 // exporting router
 module.exports = router;

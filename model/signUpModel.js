@@ -5,46 +5,54 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const signUpSchema = new Schema({
-    firstName: {
-        type: String,
-        required: [true, "A first name is required."],
-        minLength: [2, "The minimum number of characters is two."]
-    },
+  firstName: {
+    type: String,
+    required: [true, "A first name is required."],
+    minLength: [2, "The minimum number of characters is two."],
+  },
 
-    lastName: {
-        type: String,
-        required: [true, "A last name is required."],
-        minLength: [2, "The minimum number of characters is two."]
-    },
+  lastName: {
+    type: String,
+    required: [true, "A last name is required."],
+    minLength: [2, "The minimum number of characters is two."],
+  },
 
-    email: {
-        type: String,
-        required: [true, "An email is required."],
-        minLength: [2, "The minimum number of characters is two."],
-        unique: true
-    },
+  email: {
+    type: String,
+    required: [true, "An email is required."],
+    minLength: [2, "The minimum number of characters is two."],
+    unique: true,
+  },
 
-    phoneNumber: {
-        type: Number,
-        required: [true, "A phone number is required."],
-        minLength: [10, "The minimum number of digits is 10"],
-        unique: true
-    },
+  phoneNumber: {
+    type: Number,
+    required: [true, "A phone number is required."],
+    minLength: [10, "The minimum number of digits is 10"],
+    unique: true,
+  },
 
-    username: {
-        type: String,
-        required: [true, "A username is required."],
-        minLength: [8, "The minimum number of characters is eight."],
-        unique: true
-    },
+  username: {
+    type: String,
+    required: [true, "A username is required."],
+    minLength: [8, "The minimum number of characters is eight."],
+    unique: true,
+  },
 
-    password: {
-        type: String,
-        required: [true, "A password is required."],
-        minLength: [8, "The minimum number of characters is eight."],
-        unique: true
-    },
+  password: {
+    type: Buffer,
+    required: [true, "A password is required."],
+    minLength: [8, "The minimum number of characters is eight."],
+    unique: true,
+  },
 
+  salt: {
+    type: Buffer,
+  },
+
+  strategy: {
+    type: String,
+    required: true,
+  },
 });
 
 //defining a constant of an constructor object to use mongoose as the middleware for the schema model

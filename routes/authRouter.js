@@ -1,19 +1,25 @@
 //authRouter to contain the authorization-related routes. The routes that go to admin page.
-    //imports to authCtrl
+//imports to authCtrl
 
 // importing express
 const express = require("express");
 
+//import handler Functions from the controller directory
+const {
+  signUpRequest,
+  getAllUsers,
+  getUser,
+  forgotLogin,
+  getAllMessages,
+  getMessage,
+  admin,
+} = require("../controller/authCtrl");
+
 //importing express.Router() to handle different requests
 const router = express.Router();
 
-//import handler Functions from the controller directory
-const {signUpRequest, getAllUsers, getUser, forgotLogin, getAllMessages, getMessage, admin} = require("../controller/authCtrl");
-
-
-
-//Detect for signing up
-router.get("/api/auth/signup", signUpRequest); //doesn't work
+//Signing up
+router.post("/api/auth/signup", signUpRequest); //doesn't work
 
 //Forgot Login Form
 //making a GET route to read forgot login page (forgot-login.html)
@@ -30,8 +36,7 @@ router.get("/api/admin/users/:_id", getUser);
 router.get("/api/admin/messages", getAllMessages);
 
 //Get single message
-router.get("/api/admin/message/:_id", getMessage);
-
+router.get("/api/admin/messages/:_id", getMessage);
 
 //Get in Touch Form
 

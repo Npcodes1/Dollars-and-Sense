@@ -3,11 +3,11 @@
 //importing express
 const express = require("express");
 
+//import handler Functions from the controller directory
+const { contact, sendMessage } = require("../controller/contactCtrl");
+
 //importing express.Router() to handle different requests
 const router = express.Router();
-
-//import handler Functions from the controller directory
-const {contact, sendMessage} = require("../controller/contactCtrl");
 
 //making a GET route to read contact page (contact.html)
 router.get("/api/contact", contact);

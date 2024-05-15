@@ -80,8 +80,16 @@
 - 04/21/2024 - Added routes and handler functions using the CRUD operations. Need to confirm if it's possible to use handler functions in different routes. Like for the admin, if I wanted the ability to create, update, or delete the formData that's collected from when a user submits a form and also do the same for the usersData, is it possible?
 
 - 04/22/2024 - Worked on touching up styles on pages.
-- 
+
 - 04/25/2024 - Reworked the styling of the HTML pages. Because I had the same contact form on every page of the project, I was having trouble figuring out how to route the form information from each page to the admin page. So I decided to create a new HTML page called Contact and put the contact form there. Then I removed the contact forms from the rest of the pages but put a link on the "Get in Touch" so it'll direct to the contact page. Also, added media queries to scale the pie chart so it's mobile friendly.
 - 04/28/2024 - Worked on the routes and controller files.
+  
 - 04/29/2024 - Continued working on the routes and controller files and started adding the model files.
+  
 - 04/30/2024 - Worked on setting up MongoDb and continued refactoring the model files. Also started refactoring html code for the sign up form.
+
+-05/03/2024 - separated routes and handler functions into specific files and refactored code.
+  
+- 05/13/2024 - created a new branch to start building my financial tracker. Having trouble with adding and removing inputs. Also, tested my routes using Postman and started brainstorming the reason for my send message on my contact form not working. Will try again tomorrow. 
+
+-05/14/2024 - added mock data to MongoDB Atlas to fix getAll messages, getMessage, getAllUsers, and getUser routes. Also, refactored code and started setting up authentication.
