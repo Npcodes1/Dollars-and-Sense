@@ -80,10 +80,10 @@ const getAllUsers = async (req, res, next) => {
 //get single user -not working
 const getUser = async (req, res, next) => {
   const { _id } = req.params;
-  await User.findOne({ _id: _id }).then((user) => {
+  await User.findOne({ _id: _id }).then((users) => {
     res.status(200).json({
       success: { message: "A single user was successfully selected" },
-      data: user,
+      data: users,
       statusCode: 200,
     });
   });

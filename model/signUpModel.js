@@ -44,6 +44,7 @@ const signUpSchema = new Schema({
     minLength: [8, "The minimum number of characters is eight."],
     unique: true,
   },
+  googleId: "",
 
   salt: {
     type: Buffer,

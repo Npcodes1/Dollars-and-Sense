@@ -32,5 +32,26 @@ router.get("/api/login/failed", localLoginFailed);
 // //Detect for logging out
 router.get("/api/logout", logOutRequest);
 
+//Google Login
+router.get(
+  "/api/login/google",
+  passport.authenticate("google", { scope: ["profile"] })
+);
+
+//Google Login failed
+router.get("/api/login/google/failed"),
+  (req, res, next) => {
+    res.json({ message: "There is a problem with Google authentication." });
+  };
+
+//Google authentication
+router.get(
+  "/api/auth/google",
+  passport.authenticate("google", {
+    successRedirect: "/",
+    failureRedirect: "/api/login/failed",
+  })
+);
+
 // exporting router
 module.exports = router;

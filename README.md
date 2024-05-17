@@ -93,3 +93,5 @@
 - 05/13/2024 - created a new branch to start building my financial tracker. Having trouble with adding and removing inputs. Also, tested my routes using Postman and started brainstorming the reason for my send message on my contact form not working. Will try again tomorrow. 
 
 -05/14/2024 - added mock data to MongoDB Atlas to fix getAll messages, getMessage, getAllUsers, and getUser routes. Also, refactored code and started setting up authentication.
+
+-05/17/2024 - Added Google Authentication

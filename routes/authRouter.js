@@ -3,6 +3,7 @@
 
 // importing express
 const express = require("express");
+const passport = require("passport");
 
 //import handler Functions from the controller directory
 const {
@@ -19,7 +20,7 @@ const {
 const router = express.Router();
 
 //Signing up
-router.post("/api/auth/signup", signUpRequest); //doesn't work
+router.get("/api/auth/signup", signUpRequest); //doesn't work
 
 //Forgot Login Form
 //making a GET route to read forgot login page (forgot-login.html)
