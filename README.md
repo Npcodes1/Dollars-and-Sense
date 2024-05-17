@@ -94,4 +94,4 @@
 
 -05/14/2024 - added mock data to MongoDB Atlas to fix getAll messages, getMessage, getAllUsers, and getUser routes. Also, refactored code and started setting up authentication.
 
--05/17/2024 - Added Google Authentication
+-05/17/2024 - Set up Google and GitHub Authentication on my project.

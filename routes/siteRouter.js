@@ -53,5 +53,22 @@ router.get(
   })
 );
 
+//GitHub Login
+router.get("/api/login/github", passport.authenticate("github"));
+
+//GitHub failed login
+router.get("/api/login/github/failed", (req, res, next) => {
+  res.json({ message: "There is a problem with Github authentication." });
+});
+
+//GitHub authentication
+router.get(
+  "/api/auth/github",
+  passport.authenticate("github", {
+    successRedirect: "/",
+    failureRedirect: "api/login/github/failed",
+  })
+);
+
 // exporting router
 module.exports = router;

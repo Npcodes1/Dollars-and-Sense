@@ -2,6 +2,7 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oath20").Strategy;
+const GithubStrategy = require("passport-github").Strategy;
 
 const User = require("../model/signUpModel");
 
@@ -36,6 +37,21 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:3000/auth/google",
+    },
+    (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
+      return done(null, profile);
+    }
+  )
+);
+
+//implement Github strategy
+passport.use(
+  new GithubStrategy(
+    {
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: "http://localhost:3000/auth/github",
     },
     (accessToken, refreshToken, profile, done) => {
       console.log(profile);
