@@ -1,3 +1,3 @@
-[{"_id":{"$oid":"664403f81347f26df4117b7b"},"firstName":"Nicole","lastName":"Payne","message":"Am I doing this right?"},
-{"_id":{"$oid":"6644041b1347f26df4117b7c"},"firstName":"Tommy","lastName":"Pickles","message":"A baby's got to do what a baby's got to do!"},
-{"_id":{"$oid":"6644041b1347f26df4117b7d"},"firstName":"Susie","lastName":"Carmichael","message":"That's the final nail in the coffee!"}]
+[{"_id":{"$oid":"664403f81347f26df4117b7b"},"firstName":"Nicole","lastName":"Payne","email":"np123@gmail.com", "message":"Am I doing this right?"},
+{"_id":{"$oid":"6644041b1347f26df4117b7c"},"firstName":"Tommy","lastName":"Pickles","email":"tp123@gmail.com", "message":"A baby's got to do what a baby's got to do!"},
+{"_id":{"$oid":"6644041b1347f26df4117b7d"},"firstName":"Susie","lastName":"Carmichael","email":"sc123@gmail.com","message":"That's the final nail in the coffee!"}]

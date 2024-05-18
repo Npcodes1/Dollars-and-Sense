@@ -14,12 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //Declare routing variables
-const authRoutes = require("./routes/authRouter");
+const siteRoutes = require("./routes/siteRouter");
 const trackerRoutes = require("./routes/trackerRouter");
-const creditRoutes = require("./routes/creditRouter");
-const resourceRoutes = require("./routes/resourceRouter");
-const contactRoutes = require("./routes/contactRouter");
-const profileRoutes = require("./routes/profileRouter");
+const authRoutes = require("./routes/authRouter");
 
 //Use Middleware
 app.use(
@@ -46,19 +43,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //making a route for home page(index.html)
-app.get("/api/", (req, res, next) => {
+app.get("/", (req, res, next) => {
   res
     .status(200)
     .json({ success: { message: "This is the homepage" }, statusCode: 200 });
 });
 
 //use the routes in the specified router files
-app.use(authRoutes);
-app.use(trackerRoutes);
-app.use(creditRoutes);
-app.use(resourceRoutes);
-app.use(contactRoutes);
-app.use(profileRoutes);
+app.use("/api", siteRoutes);
+app.use("/api/tracker", trackerRoutes);
+app.use("/auth", authRoutes);
 
 //Server
 app.listen(PORT, () => {

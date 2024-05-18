@@ -1,25 +1,63 @@
-//Site Router
+//Site Router- Contains all the things site wise
 
 // importing express and passport
 const express = require("express");
 const passport = require("passport");
 
-const { localLoginFailed } = require("../controller/siteCtrl");
+const {
+  creditScore,
+  resources,
+  contact,
+  sendMessage,
+  profile,
+  localLoginFailed,
+  logOutRequest,
+  signupRequest,
+  forgotLogin,
+  changePassword,
+} = require("../controller/siteCtrl");
 
-//importing express.Router() to handle different requests
 const router = express.Router();
+
+//Credit Score Page
+//making a GET route to read credit score page (credit-score.html)
+router.get("/credit-score", creditScore);
+
+//Resources Page
+//making a GET route to read resources page (resources.html)
+router.get("/resources", resources);
+
+//Contact Page
+//making a GET route to read contact page (contact.html)
+router.get("/contact", contact);
+
+//Use contact form to send message
+router.post("/contact/send", sendMessage);
+
+//Profile Page
+//making a GET route to read profile page (profile.html)
+router.get("/profile", profile);
+
+//Forgot Login Page
+//route to read forgot login page (forgot-login.html)
+router.get("/forgot-login", forgotLogin);
+
+//Use able to change forgotten password
+router.put("/forgot-login/edit-password/:_email", changePassword);
 
 //Local login
 router.post(
-  "/api/login/local",
-  passport.authenticate("local", { failureRedirect: "/api/login/failed" }),
+  "/login/local",
+  passport.authenticate("local", {
+    failureRedirect: "/login/local/failed",
+  }),
   (req, res, next) => {
     res.status(200).json({
       success: { message: "User logged in." },
       data: {
-        username: req.user.username,
-        firstName: req.user.firstName,
-        lastName: req.user.lastName,
+        username: req.users.username,
+        firstName: req.users.firstName,
+        lastName: req.users.lastName,
       },
       statusCode: 200,
     });
@@ -27,26 +65,29 @@ router.post(
 );
 
 //Detect for failed login attempts
-router.get("/api/login/failed", localLoginFailed);
+router.get("/login/local/failed", localLoginFailed);
 
-// //Detect for logging out
-router.get("/api/logout", logOutRequest);
+//Detect for logging out
+router.get("/logout", logOutRequest);
+
+//Signing up
+router.post("/signup", signupRequest);
 
 //Google Login
 router.get(
-  "/api/login/google",
+  "/login/google",
   passport.authenticate("google", { scope: ["profile"] })
 );
 
 //Google Login failed
-router.get("/api/login/google/failed"),
+router.get("/login/google/failed"),
   (req, res, next) => {
     res.json({ message: "There is a problem with Google authentication." });
   };
 
 //Google authentication
 router.get(
-  "/api/auth/google",
+  "/auth/google",
   passport.authenticate("google", {
     successRedirect: "/",
     failureRedirect: "/api/login/failed",
@@ -54,21 +95,21 @@ router.get(
 );
 
 //GitHub Login
-router.get("/api/login/github", passport.authenticate("github"));
+router.get("/login/github", passport.authenticate("github"));
 
 //GitHub failed login
-router.get("/api/login/github/failed", (req, res, next) => {
+router.get("/login/github/failed", (req, res, next) => {
   res.json({ message: "There is a problem with Github authentication." });
 });
 
 //GitHub authentication
 router.get(
-  "/api/auth/github",
+  "/auth/github",
   passport.authenticate("github", {
     successRedirect: "/",
-    failureRedirect: "api/login/github/failed",
+    failureRedirect: "/login/github/failed",
   })
 );
 
-// exporting router
+//exporting router
 module.exports = router;

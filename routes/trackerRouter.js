@@ -1,28 +1,29 @@
-//Financial Tracker Router
-
-// importing express
+// Tracker Router - Contains all the things for the financial tracker page
 const express = require("express");
 
-//importing express.Router() to handle different requests
+const {
+  financialTracker,
+  createEntry,
+  updateEntry,
+  deleteEntry,
+} = require("../controller/trackerCtrl");
+
 const router = express.Router();
 
-//import handler Functions from the controller directory
-const {financialTracker, createEntry, updateEntry, deleteEntry} = require("../controller/trackerCtrl");
-
-//Financial Tracker
+//Financial Tracker Page
 //Goal is that user can edit the financial tracker inputs to add/edit/remove entries
 
 //making GET route to read financial tracker page (financial-tracker.html)
-router.get("/api/financial-tracker", financialTracker);
+router.get("/", financialTracker);
 
-//to create new entry
-router.post("/api/financial-tracker/create", createEntry);
+//User is able to create new expense/budget entry into the tracker
+router.post("/create", createEntry);
 
-//to update entry
-router.put("/api/financial-tracker/edit", updateEntry);
+//User is able to update entry into tracker
+router.put("/edit", updateEntry);
 
-//to delete entry
-router.delete("/api/financial-tracker/delete", deleteEntry);
+//User is able to delete entry from tracker
+router.delete("/delete", deleteEntry);
 
-// exporting router
+//exporting router
 module.exports = router;

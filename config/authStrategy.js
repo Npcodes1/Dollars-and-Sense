@@ -1,36 +1,39 @@
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy;
-const GoogleStrategy = require("passport-google-oath20").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GithubStrategy = require("passport-github").Strategy;
 
-const User = require("../model/signUpModel");
+const User = require("../model/userModel");
 
 //implement Local strategy
 passport.use(
-  new LocalStrategy(function verify(username, password, done) {
-    User.findOne({ username: username })
-      .then((user) => {
-        if (!user) {
-          return don(null, false, { message: "User not found." });
-        }
-        bcrypt.compare(password, user.password, (error, result) => {
-          console.log("result", result);
-          if (error) {
-            return done(error);
+  new LocalStrategy(
+    (verify = (username, password, done) => {
+      User.findOne({ username: username })
+        .then((user) => {
+          if (!user) {
+            return done(null, false, { message: "User not found." });
           }
-          return done(null, user);
+          bcrypt.compare(password, user.password, (error, result) => {
+            console.log("result", result);
+            //if there's a user, use bcrypt to compare the password entered vs stored and console.log the result to check if there's a match.
+            if (error) {
+              return done(error);
+            }
+            return done(null, user);
+          });
+        })
+        .catch((error) => {
+          console.log(
+            `There was an error finding the user from the database: ${error}.`
+          );
         });
-      })
-      .catch((error) => {
-        console.log(
-          `There was an error finding the user from the database: ${error}.`
-        );
-      });
-  })
+    })
+  )
 );
 
-//implement Google Strategy
+// implement Google Strategy
 passport.use(
   new GoogleStrategy(
     {

@@ -1,57 +1,71 @@
-//authRouter to contain the authorization-related routes. The routes that go to admin page.
-//imports to authCtrl
+//authRouter to contain the authorization-related routes. The routes will go to the admin console page.
 
 // importing express
 const express = require("express");
+const app = express();
 const passport = require("passport");
 
 //import handler Functions from the controller directory
 const {
-  signUpRequest,
+  admin,
   getAllUsers,
   getUser,
-  forgotLogin,
+  editUser,
+  deleteUser,
   getAllMessages,
   getMessage,
-  admin,
+  getUserByEmail,
+  editMessage,
+  deleteMessage,
 } = require("../controller/authCtrl");
 
 //importing express.Router() to handle different requests
 const router = express.Router();
 
-//Signing up
-router.get("/api/auth/signup", signUpRequest); //doesn't work
-
-//Forgot Login Form
-//making a GET route to read forgot login page (forgot-login.html)
-router.get("/api/auth/forgot-login", forgotLogin);
-
-//User data after signing up
-//making a route to get all users
-router.get("/api/admin/users", getAllUsers);
-
-//making a GET route to get a single user
-router.get("/api/admin/users/:_id", getUser);
-
-//Get all messages
-router.get("/api/admin/messages", getAllMessages);
-
-//Get single message
-router.get("/api/admin/messages/:_id", getMessage);
-
-//Get in Touch Form
-
-//making a route to search for a single form Data
-
-//making a route to create form data
-
-//making a route to update form data
-
-//making a route to delete form data
+const checkAuthentication = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.json("Authenticated!");
+    return next();
+  } else {
+    res.redirect(403, "/unauthenticated");
+  }
+};
 
 //Admin
-//making a GET route to read admin page (admin.html) - capability to read the admin page
-router.get("/api/admin", admin);
+//making a GET route to read admin console page (admin.html)
+router.get("/admin", checkAuthentication, admin);
+
+//User data after signing up
+//route to get all users
+router.get("/admin/users", getAllUsers);
+
+//route to get a single user
+router.get("/admin/users/:_id", getUser);
+
+//route to edit user
+router.put("/admin/users/edit/:_id", editUser);
+
+//route to delete user
+router.delete("/admin/users/delete/:_id", deleteUser);
+
+//route to get all messages
+router.get("/admin/messages", getAllMessages);
+
+//route to get a single message
+router.get("/admin/messages/:_id", getMessage);
+
+//Finding user by email for forgot-login page to change password.
+router.get("/admin/retrieve-user/:_email", getUserByEmail);
+
+//route to edit a single message
+router.put("/messages/edit/:_id", editMessage);
+
+//route to delete a single message
+router.delete("/messages/delete/:_id", deleteMessage);
+
+router.get("/unauthenticated", (req, res, next) => {
+  res.redirect("/");
+});
 
 // exporting router
 module.exports = router;
