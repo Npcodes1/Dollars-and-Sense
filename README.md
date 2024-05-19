@@ -95,3 +95,7 @@
 -05/14/2024 - added mock data to MongoDB Atlas to fix getAll messages, getMessage, getAllUsers, and getUser routes. Also, refactored code and started setting up authentication.
 
 -05/17/2024 - Set up Google and GitHub Authentication on my project.
+
+-05/18/2024 - Worked on reconfiguring my routes and controllers so it wasn't so confusing. Also, finished setting up Authentication.
+
+-05/19/2019 - Tested my routes to make sure they were working properly and finished my backend routes for my tracker. I started writing out my route paths and putting the purpose and the links in an excel spreadsheet because there were so many (around 35 last time I checked.) It's really hard trying to test the post/put/delete routes in Postman because I'm not sure if it's still supposed to be functional or not. When everything was finished and checked, I started the process to deploy on Render.

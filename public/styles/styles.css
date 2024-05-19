@@ -6,7 +6,8 @@
     --almond: #F1DABF;
     --caput-mortuum: #482728;
     --black: #000;
-    
+    --red: #f1291a;
+    --light-gray: #ededed;
 }
 
 * {
@@ -258,7 +259,6 @@ textarea {
     padding: 2rem;
 }
 
-
 /* Footer Section */
 .footer-container {
     background-color: var(--indigo-dye);
@@ -399,52 +399,62 @@ textarea {
 .input-container label {
     margin-right: 1rem;
 }
-  
-/*Expense List  */
-.expenses-list {
-    display: flex;
-    flex-direction: column;
-    overflow-x: auto;
-}
 
 .done-btn {
     padding: 0.5rem;
     margin-bottom: 2rem;
 }
-
-.table {
-    margin: 1rem;
-    max-width: 100%;
-    table-layout: fixed;
-
-}
   
-.table-heading > tr th {
-    border-bottom: 4px solid var(--indigo-dye);
-    border-radius: 10px;
-    padding: 0 5rem;
-    margin: auto;
-
-}
-
-.expenses-table-row td {
-    border-bottom: 3px solid var(--indigo-dye);
-    padding: 1rem;  
-    width: 15%; 
-}
-
-.edit, .delete {
-    text-align: center;
-}
-
-.total-container {
-    display: flex;
-}
-
-.total {
-    font-size: 1.5rem;
-    padding-top: 2rem;
-}
+/*Expense List  */
+.h2-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 8px 12px;
+    text-align: left;
+  }
+  
+  .table-heading th {
+    background-color: var(--snow);
+  }
+  
+  .expense-table-body .expenses-table-row:nth-child(even) {
+    background-color: var(--light-gray);
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
+  
+  .btn-edit {
+    background-color: var(--almond);
+    cursor: pointer;
+  }
+  
+  .btn-delete {
+    background-color: var(--red);
+    color: var(--snow);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .total-container {
+    font-weight: bold;
+    background-color: var(--snow);
+  }
 
 
 /* Forgot Login Page */
@@ -568,6 +578,15 @@ textarea {
     .transactions-container {
         max-width: 100%;
     }
+    .table th, .table td {
+        font-size: 0.9em;
+        padding: 6px 8px;
+      }
+      
+      .btn {
+        padding: 4px 8px;
+        font-size: 0.8em;
+      }
 }
 
 
@@ -608,6 +627,16 @@ textarea {
      .transactions-container {
         max-width: 100%;
     }
+
+    .table th, .table td {
+        font-size: 0.9em;
+        padding: 6px 8px;
+      }
+      
+      .btn {
+        padding: 4px 8px;
+        font-size: 0.8em;
+      }
 }
 
 /* Desktop */
