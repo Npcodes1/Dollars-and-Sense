@@ -39,7 +39,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google",
+      callbackURL: "http://localhost:3000/api/auth/google",
+      scope: ["profile", "email"],
     },
     (accessToken, refreshToken, profile, done) => {
       console.log(profile);
@@ -54,7 +55,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/github",
+      callbackURL: "http://localhost:3000/api/auth/github",
     },
     (accessToken, refreshToken, profile, done) => {
       console.log(profile);

@@ -1,5 +1,4 @@
 //Site Controller
-const passport = require("passport");
 const bcrypt = require("bcrypt");
 
 //import User Model
@@ -132,11 +131,6 @@ const logOutRequest = (req, res, next) => {
 // SignUp Request- creating a new user (permission for both user and admin)
 const signupRequest = (req, res, next) => {
   const { firstName, lastName, email, username, password } = req.body;
-  // const firstName = "test First Name";
-  // const lastName = "test last Name";
-  // const email = "test email";
-  // const username = "test username";
-  // const password = "test password";
   bcrypt.hash(password, 10, async (error, hashedPassword) => {
     if (error) {
       return next(error);

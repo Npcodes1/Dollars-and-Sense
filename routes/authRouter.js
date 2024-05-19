@@ -2,8 +2,6 @@
 
 // importing express
 const express = require("express");
-const app = express();
-const passport = require("passport");
 
 //import handler Functions from the controller directory
 const {
@@ -22,18 +20,9 @@ const {
 //importing express.Router() to handle different requests
 const router = express.Router();
 
-const checkAuthentication = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    res.json("Authenticated!");
-    return next();
-  } else {
-    res.redirect(403, "/unauthenticated");
-  }
-};
-
 //Admin
 //making a GET route to read admin console page (admin.html)
-router.get("/admin", checkAuthentication, admin);
+router.get("/admin", admin);
 
 //User data after signing up
 //route to get all users
@@ -62,10 +51,6 @@ router.put("/messages/edit/:_id", editMessage);
 
 //route to delete a single message
 router.delete("/messages/delete/:_id", deleteMessage);
-
-router.get("/unauthenticated", (req, res, next) => {
-  res.redirect("/");
-});
 
 // exporting router
 module.exports = router;

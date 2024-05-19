@@ -46,7 +46,7 @@ router.get("/forgot-login", forgotLogin);
 router.put("/forgot-login/edit-password/:_email", changePassword);
 
 //Local login
-router.post(
+router.get(
   "/login/local",
   passport.authenticate("local", {
     failureRedirect: "/login/local/failed",
@@ -55,9 +55,9 @@ router.post(
     res.status(200).json({
       success: { message: "User logged in." },
       data: {
-        username: req.users.username,
-        firstName: req.users.firstName,
-        lastName: req.users.lastName,
+        username: req.user.username,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
       },
       statusCode: 200,
     });
@@ -90,7 +90,7 @@ router.get(
   "/auth/google",
   passport.authenticate("google", {
     successRedirect: "/",
-    failureRedirect: "/api/login/failed",
+    failureRedirect: "/login/failed",
   })
 );
 
