@@ -14,16 +14,16 @@ const router = express.Router();
 //Goal is that user can edit the financial tracker inputs to add/edit/remove entries
 
 //making GET route to read financial tracker page (financial-tracker.html)
-router.get("/", financialTracker);
+router.get("/tracker", financialTracker);
 
 //User is able to create new expense/budget entry into the tracker
-router.post("/create", createEntry);
+router.post("/tracker/entry/create", createEntry);
 
 //User is able to update entry into tracker
-router.put("/edit", updateEntry);
+router.put("/tracker/entry/edit", updateEntry);
 
 //User is able to delete entry from tracker
-router.delete("/delete", deleteEntry);
+router.delete("/tracker/entry/delete", deleteEntry);
 
 //exporting router
 module.exports = router;

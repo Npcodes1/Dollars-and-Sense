@@ -97,12 +97,17 @@ const profile = async (req, res, next) => {
   }
 };
 
-// const login = (req, res, next) => {
-//   res.status(200).json({
-//     success: { message: "User is at login page. Welcome!" },
-//     statusCode: 200,
-//   });
-// };
+//check login
+const login = async (req, res, next) => {
+  console.log(req.user);
+  res.status(200).json({
+    success: { message: "User logged in." },
+    data: {
+      username: req.user.username,
+    },
+    statusCode: 200,
+  });
+};
 
 //Login Failed
 const localLoginFailed = (req, res, next) => {
@@ -132,10 +137,6 @@ const logOutRequest = (req, res, next) => {
 const signupRequest = (req, res, next) => {
   const { firstName, lastName, email, username, password } = req.body;
   bcrypt.hash(password, 10, async (error, hashedPassword) => {
-    if (error) {
-      return next(error);
-    }
-
     const newUser = new User({
       firstName,
       lastName,
@@ -232,6 +233,7 @@ module.exports = {
   contact,
   sendMessage,
   profile,
+  login,
   signupRequest,
   localLoginFailed,
   logOutRequest,

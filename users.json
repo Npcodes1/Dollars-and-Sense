@@ -1,3 +1,0 @@
-[{"_id":{"$oid":"6644095e1347f26df4117b7e"},"firstName":"Mickey","lastName":"Mouse","email":"mickey.mouse@gmail.com","password":"MM12345"},
-{"_id":{"$oid":"6644095e1347f26df4117b7f"},"firstName":"Minnie","lastName":"Mouse","email":"minnie.mouse@gmail.com","password":"MiMo12345"},
-{"_id":{"$oid":"6644095e1347f26df4117b80"},"firstName":"Daffy","lastName":"Duck","email":"daffy.duck@gmail.com","password":"DaffyTaffy1"}]

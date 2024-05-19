@@ -8,8 +8,6 @@ const userSample = new User({
 
   email: "eliza.thornberry@gmail.com",
 
-  phoneNumber: 555 - 55 - 5555,
-
   username: "wildThornberry",
 
   password: hashedPassword,

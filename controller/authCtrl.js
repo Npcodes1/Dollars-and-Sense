@@ -1,4 +1,4 @@
-//import bcrypt
+// //import bcrypt
 const bcrypt = require("bcrypt");
 
 //import User Model
@@ -23,7 +23,6 @@ const admin = async (req, res, next) => {
 };
 
 //Admin access- ability to use CRUD operations
-
 //Search the User collection for all users
 const getAllUsers = async (req, res, next) => {
   try {
@@ -60,6 +59,79 @@ const getUser = async (req, res, next) => {
       statusCode: 400,
     });
   }
+};
+
+//Search the User collection to find a single user by email
+const getUserByEmail = async (req, res, next) => {
+  const { _email } = req.params;
+
+  try {
+    await User.findOne({ email: _email }).then((users) => {
+      res.status(200).json({
+        success: { message: "A single user email was successfully selected" },
+        data: users,
+        statusCode: 200,
+      });
+    });
+  } catch (error) {
+    res.status(400).json({
+      error: { message: "Something went wrong getting the user's email!" },
+      statusCode: 400,
+    });
+  }
+};
+
+//create a new User
+const createUser = async (req, res, next) => {
+  const { firstName, lastName, email, username, password } = req.body;
+
+  bcrypt.hash(password, 10, async (error, hashedPassword) => {
+    const newUser = new User({
+      firstName,
+      lastName,
+      email,
+      username,
+      password: hashedPassword,
+      googleId: "",
+    });
+
+    try {
+      await newUser.save();
+      req.login(newUser, (err) => {
+        if (err) {
+          res.status(400).json({
+            error: {
+              message:
+                "There was a problem while signing up. Please try again!",
+            },
+            statusCode: 400,
+          });
+        }
+      });
+
+      res.status(201).json({
+        success: { message: "New user has been created." },
+        data: { firstName, lastName, email, username },
+        statusCode: 201,
+      });
+
+      //to catch attempts on creating duplicate accounts with same username
+    } catch (err) {
+      if (err.code === 11000 && err.keyPattern.username) {
+        res.status(400).json({
+          error: {
+            message: "Username already exists. Please enter another username.",
+          },
+          statusCode: 400,
+        });
+      } else {
+        res.status(500).json({
+          error: { message: "Internal server error." },
+          statusCode: 500,
+        });
+      }
+    }
+  });
 };
 
 //Edit a document (single user) that is already stored in the User collection
@@ -150,26 +222,6 @@ const getMessage = async (req, res, next) => {
   }
 };
 
-//Search the User collection to find a single user by email
-const getUserByEmail = async (req, res, next) => {
-  const { _email } = req.params;
-
-  try {
-    await User.findOne({ email: _email }).then((users) => {
-      res.status(200).json({
-        success: { message: "A single user email was successfully selected" },
-        data: users,
-        statusCode: 200,
-      });
-    });
-  } catch (error) {
-    res.status(400).json({
-      error: { message: "Something went wrong getting the user's email!" },
-      statusCode: 400,
-    });
-  }
-};
-
 //Edit a document (single message) that is already stored in the Send collection
 const editMessage = async (req, res, next) => {
   const { _id } = req.params;
@@ -203,6 +255,7 @@ const editMessage = async (req, res, next) => {
 //Delete document (single message) in the Send collection
 const deleteMessage = async (req, res, next) => {
   const { _id } = req.params;
+
   try {
     await Send.findByIdAndDelete(_id);
     res.status(200).json({
@@ -221,11 +274,12 @@ module.exports = {
   admin,
   getAllUsers,
   getUser,
+  getUserByEmail,
+  createUser,
   editUser,
   deleteUser,
   getAllMessages,
   getMessage,
-  getUserByEmail,
   editMessage,
   deleteMessage,
 };

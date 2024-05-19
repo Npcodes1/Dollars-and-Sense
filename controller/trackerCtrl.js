@@ -1,3 +1,5 @@
+const Tracker = require("../model/trackerModel");
+
 // Financial Tracker Controller -Read the page
 const financialTracker = async (req, res, next) => {
   try {
@@ -13,18 +15,19 @@ const financialTracker = async (req, res, next) => {
   }
 };
 
-//still need to make model for create Entry!
 const createEntry = async (req, res, next) => {
-  const {} = req.body;
+  const { category, date, amount, note } = req.body;
 
-  // const newEntry = new ({
+  const newEntry = new Tracker({
+    category,
+    date,
+    amount,
+    note,
+  });
 
-  // });
-
-  //await newEntry.save() to save the entry.
-
-  //checking to see the message is saved
+  //checking to see the entry is saved
   try {
+    await newEntry.save();
     res.status(201).json({
       success: {
         message: "You've successfully created an entry on the page",
@@ -40,9 +43,24 @@ const createEntry = async (req, res, next) => {
 };
 
 const updateEntry = async (req, res, next) => {
-  //checking to see if the entry was updated.
+  const { _id } = req.params;
+  const { category, date, amount, note } = req.body;
+
   try {
-    await res.status(200).json({
+    await Tracker.findByIdAndUpdate(
+      _id,
+      {
+        $set: {
+          category,
+          date,
+          amount,
+          note,
+        },
+      },
+      { new: true }
+    );
+    //checking to see if the entry was updated.
+    res.status(200).json({
       success: {
         message: "You've successfully updated an entry on the page",
       },
@@ -57,11 +75,12 @@ const updateEntry = async (req, res, next) => {
 };
 
 const deleteEntry = async (req, res, next) => {
-  //code to delete entry
+  const { _id } = req.params;
 
-  //checking to see if the entry was deleted.
   try {
-    await res.status(200).json({
+    await Tracker.findByIdAndDelete(_id);
+    //checking to see if the entry was deleted.
+    res.status(200).json({
       success: {
         message: "You've successfully deleted an entry on the page",
       },

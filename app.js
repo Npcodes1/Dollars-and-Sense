@@ -51,7 +51,7 @@ app.get("/", (req, res, next) => {
 
 //use the routes in the specified router files
 app.use("/api", siteRoutes);
-app.use("/api/tracker", trackerRoutes);
+app.use("/financial", trackerRoutes);
 app.use("/auth", authRoutes);
 
 //Server

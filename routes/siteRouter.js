@@ -10,6 +10,7 @@ const {
   contact,
   sendMessage,
   profile,
+  login,
   localLoginFailed,
   logOutRequest,
   signupRequest,
@@ -37,6 +38,9 @@ router.post("/contact/send", sendMessage);
 //Profile Page
 //making a GET route to read profile page (profile.html)
 router.get("/profile", profile);
+
+//check login
+router.post("/login", login);
 
 //Forgot Login Page
 //route to read forgot login page (forgot-login.html)
@@ -80,10 +84,9 @@ router.get(
 );
 
 //Google Login failed
-router.get("/login/google/failed"),
-  (req, res, next) => {
-    res.json({ message: "There is a problem with Google authentication." });
-  };
+router.get("/login/google/failed", (req, res, next) => {
+  res.json({ message: "There is a problem with Google authentication." });
+});
 
 //Google authentication
 router.get(
